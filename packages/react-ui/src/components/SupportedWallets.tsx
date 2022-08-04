@@ -1,6 +1,5 @@
-import React, { memo } from 'react';
-
-import { ExtensionInfo } from '../../../src';
+import { memo } from 'react';
+import { ExtensionInfo } from '@dotsama-wallets/react';
 
 const SupportedWallets = ({ extensions }: { extensions: ExtensionInfo[] }) => {
   if (extensions.length === 0) {

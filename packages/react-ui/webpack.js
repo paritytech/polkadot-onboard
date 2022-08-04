@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './demo/src',
+  entry: './src',
   devtool: 'inline-source-map',
   devServer: {
     port: 3000,
@@ -36,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './demo/src/index.html',
+      template: './src/index.html',
     }),
     new webpack.DefinePlugin({
       __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })',

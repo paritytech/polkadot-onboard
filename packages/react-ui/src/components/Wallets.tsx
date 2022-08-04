@@ -1,10 +1,10 @@
-import React, { memo, useContext } from 'react';
+import { memo, useContext } from 'react';
+import { DotsamaWalletsContext } from '@dotsama-wallets/react';
 
-import { DotsamaWalletsContext } from '../../../src';
 import SupportedWallets from './SupportedWallets';
 
 const Wallets = () => {
-  const { getExtensions, extensions, otherExtensions } = useContext(DotsamaWalletsContext);
+  const { getExtensions, extensions } = useContext(DotsamaWalletsContext);
 
   return <>
     <button onClick={getExtensions}>get extensions</button>

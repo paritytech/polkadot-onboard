@@ -1,6 +1,5 @@
-import React from 'react';
+import { DotsamaWalletsContextProvider } from '@dotsama-wallets/react';
 
-import { DotsamaWalletsContextProvider } from '../../../src';
 import Wallets from './Wallets';
 
 const App = () => (
