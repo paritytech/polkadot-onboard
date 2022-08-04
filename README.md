@@ -2,4 +2,6 @@
 
 ## run demo:
 `yarn install`  
-`npm run start`
+packages/core: `npm run build`  
+packages/react: `npm run build`  
+packages/react-ui: `npm run start`
