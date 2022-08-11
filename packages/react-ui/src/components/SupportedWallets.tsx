@@ -1,5 +1,7 @@
 import { memo } from 'react';
-import { ExtensionInfo } from '@dotsama-wallets/react';
+import { ExtensionInfo } from '@dotsama-wallets/core';
+
+import Wallet from './Wallet';
 
 const SupportedWallets = ({ extensions }: { extensions: ExtensionInfo[] }) => {
   if (extensions.length === 0) {
@@ -9,10 +11,8 @@ const SupportedWallets = ({ extensions }: { extensions: ExtensionInfo[] }) => {
   return (
     <div>
       <h2>Wallets:</h2>
-      {extensions.map(({ name, version, enable }) => (
-        <div key={name} style={{ marginBottom: '10px' }}>
-          <button onClick={() => enable('dotsama-wallets')}>{`${name} ${version}`}</button>
-        </div>
+      {extensions.map((extension) => (
+        <Wallet key={extension.name} extension={extension} />
       ))}
     </div>
   );
