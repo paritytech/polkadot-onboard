@@ -25,7 +25,7 @@ const Wallet = ({ extension }: { extension: ExtensionInfo }) => {
 
   const getAccounts = async () => {
     // TODO prevent multi-click, add try catch
-    const { injectedExtension, accounts } = await connectToExtension(extension);
+    const { injectedExtension, accounts } = await connectToExtension('dotsama-wallets', extension);
 
     setAccounts(accounts);
     setInjector(injectedExtension);
