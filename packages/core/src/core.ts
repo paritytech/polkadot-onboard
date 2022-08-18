@@ -1,14 +1,14 @@
 import { InjectedWindow } from '@polkadot/extension-inject/types';
 
-import { BasicExtensionInfo, ExtensionInfo } from './interfaces';
+import { DotsamaWallet, DotsamaWalletBasic, ExtensionEnabler } from './interfaces';
 import { supportedExtensions } from './supportedExtensions';
 
 const DISALLOWED_EXTENSIONS: string[] = [];
 
 export const getExtensions = () => {
   const injectedWindow = window as Window & InjectedWindow;
-  const knownExtensions: ExtensionInfo[] = [];
-  const otherExtensions: BasicExtensionInfo[] = [];
+  const knownExtensions: DotsamaWallet<ExtensionEnabler>[] = [];
+  const otherExtensions: DotsamaWalletBasic<ExtensionEnabler>[] = [];
 
   Object.keys(injectedWindow.injectedWeb3).forEach((extensionName) => {
     if (!DISALLOWED_EXTENSIONS.includes(extensionName)) {

@@ -1,4 +1,4 @@
-import { InjectedWindowProvider } from '@polkadot/extension-inject/types';
+import { Injected } from '@polkadot/extension-inject/types';
 
 export interface Browsers {
   chrome: string;
@@ -11,8 +11,13 @@ export interface RawExtension {
   name: string;
 }
 
-export interface BasicExtensionInfo extends InjectedWindowProvider {
+export type ExtensionEnabler = (origin: string) => Promise<Injected>;
+
+export interface DotsamaWallet<T> extends DotsamaWalletBasic<T>, RawExtension {}
+
+export interface DotsamaWalletBasic<T> {
+  enable: T;
+  version: string;
+  // isConnected: boolean;
   name: string;
 }
-
-export interface ExtensionInfo extends InjectedWindowProvider, RawExtension {}
