@@ -1,6 +1,6 @@
 import { memo, useCallback, useContext, useEffect, useState } from 'react';
 import { utils } from 'ethers';
-import { ExtensionInfo } from '@dotsama-wallets/core';
+import { ExtensionInfo } from '../../../injectedWallets/dist';
 import { DotsamaWalletsContext } from '@dotsama-wallets/react';
 import { Injected, InjectedAccount } from '@polkadot/extension-inject/types';
 // TODO discuss about Api, potentially can be moved higher up, maybe even to core

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ExtensionInfo } from '@dotsama-wallets/core';
+import { ExtensionInfo } from '../../../injectedWallets/dist';
 
 import Wallet from './Wallet';
 

@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo, useCallback } from 'react';
-import { getExtensions, DotsamaWallet, DotsamaWalletBasic, ExtensionEnabler } from '@dotsama-wallets/core';
+import { getExtensions, DotsamaWallet, DotsamaWalletBasic, ExtensionEnabler } from '../../../injectedWallets/dist';
 import { Injected, InjectedAccount } from '@polkadot/extension-inject/types';
 
 interface DotsamaWalletsContextProviderProps {
