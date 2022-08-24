@@ -1,14 +1,23 @@
 import { InjectedWindow } from '@polkadot/extension-inject/types';
-
-import { DotsamaWallet, DotsamaWalletBasic, ExtensionEnabler } from './interfaces';
+import { Account, BaseWallet, WalletType } from '@dotsama-wallets/core';
+import  ExtensionEnabler, WalletExtension } from './interfaces';
 import { supportedExtensions } from './supportedExtensions';
+import { Signer } from '@polkadot/api/types';
+import { InjectedWalletMetadata, WalletExtension } from './interfaces';
 
 const DISALLOWED_EXTENSIONS: string[] = [];
 
-export const getExtensions = () => {
+class InjectedWallet implements BaseWallet {
+  type: WalletType.INJECTED;
+  metadata: InjectedWalletMetadata|{};
+  signer: Signer|null = null;
+  getAccounts(): Array<Account> {}
+}
+
+const getExtensions = () => {
   const injectedWindow = window as Window & InjectedWindow;
-  const knownExtensions: DotsamaWallet<ExtensionEnabler>[] = [];
-  const otherExtensions: DotsamaWalletBasic<ExtensionEnabler>[] = [];
+  const knownExtensions: WalletExtension<ExtensionEnabler>[] = [];
+  const otherExtensions: WalletExtension<ExtensionEnabler>[] = [];
 
   Object.keys(injectedWindow.injectedWeb3).forEach((extensionName) => {
     if (!DISALLOWED_EXTENSIONS.includes(extensionName)) {

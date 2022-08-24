@@ -1,8 +1,8 @@
 {
-  "name": "@dotsama-wallets/injectedWallets",
+  "name": "@dotsama-wallets/injected-wallets",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist/ && npm run format && tsc --build",
     "build:watch": "tsc --watch",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@polkadot/api": "^9.1.1",
-    "@polkadot/extension-inject": "^0.44.4"
+    "@polkadot/extension-inject": "^0.44.4",
+    "@dotsama-wallets/core": "^1.0.0"
   }
 }

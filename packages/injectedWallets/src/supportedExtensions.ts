@@ -1,4 +1,4 @@
-import { RawExtension } from './interfaces';
+import { RawExtension } from './types';
 
 export const supportedExtensions: RawExtension[] = [
   {
