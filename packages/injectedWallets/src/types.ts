@@ -9,8 +9,8 @@ export interface ExtensionMetadata {
 }
 
 export interface ExtensionConfiguration {
-  disallowed: string[];
-  supported: ExtensionMetadata[];
+  disallowed?: string[];
+  supported?: ExtensionMetadata[];
 }
 
 export interface WalletExtension {

@@ -1,6 +1,5 @@
 import { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
 import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@dotsama-wallets/core';
-import { extensionConfig } from './supportedExtensions';
 import { Signer } from '@polkadot/api/types';
 import { ExtensionConfiguration, WalletExtension } from './types';
 
@@ -41,8 +40,8 @@ export class InjectedWalletProvider implements BaseWalletProvider {
     const otherExtensions: WalletExtension[] = [];
 
     Object.keys(injectedWindow.injectedWeb3).forEach((extensionId) => {
-      if (!this.config.disallowed.includes(extensionId)) {
-        const foundExtension = this.config.supported.find(({ id }) => id === extensionId);
+      if (!this.config.disallowed?.includes(extensionId)) {
+        const foundExtension = this.config.supported?.find(({ id }) => id === extensionId);
         if (foundExtension) {
           knownExtensions.push({ ...injectedWindow.injectedWeb3[extensionId], metadata: foundExtension });
         } else {
