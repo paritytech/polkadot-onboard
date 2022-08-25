@@ -5,12 +5,8 @@ export type KeypairType = 'ed25519' | 'sr25519';
 export interface Account {
   address: string;
   type?: KeypairType;
-  meta: {
-    genesisHash?: string | null;
-    name?: string;
-    source?: string;
-    [propName: string]: unknown;
-  };
+  genesisHash?: string | null;
+  name?: string;
 }
 
 export enum WalletType {
@@ -20,16 +16,23 @@ export enum WalletType {
 }
 
 export interface BaseWalletProvider {
-  getWallets: () => Array<BaseWallet>;
+  getWallets: () => BaseWallet[];
 }
 
-export interface WalletMetadata {}
+export interface WalletMetadata {
+  title: string;
+  description?: string;
+  urls?: { main?: string; browsers?: Record<string, string> };
+  iconUrl?: string;
+}
 
 export interface BaseWallet {
   metadata: WalletMetadata;
   type: WalletType;
-  signer: Signer | null;
+  // signer will be available when the wallet is connected, otherwise it is undefined
+  signer: Signer | undefined;
   connect: () => void;
   disconnect: () => void;
-  getAccounts: () => Array<Account>;
+  isConnected: () => boolean;
+  getAccounts: () => Promise<Account[]>;
 }

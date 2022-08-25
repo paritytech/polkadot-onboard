@@ -1,12 +1,12 @@
 import { BaseWallet, BaseWalletProvider } from './types';
 
 export class WalletAggregator {
-  walletProviders: Array<BaseWalletProvider>;
-  constructor(providers: Array<BaseWalletProvider>) {
+  walletProviders: BaseWalletProvider[];
+  constructor(providers: BaseWalletProvider[]) {
     this.walletProviders = providers;
   }
-  getWallets(): Array<BaseWallet> {
-    let wallets: Array<BaseWallet> = [];
+  getWallets(): BaseWallet[] {
+    let wallets: BaseWallet[] = [];
     for (let provider of this.walletProviders) {
       wallets.push(...provider.getWallets());
     }
