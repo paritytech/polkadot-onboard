@@ -6,6 +6,7 @@ export interface ExtensionMetadata {
   description?: string;
   urls?: { main?: string; browsers?: Record<string, string> };
   iconUrl?: string;
+  version?: string;
 }
 
 export interface ExtensionConfiguration {

@@ -9,21 +9,26 @@ const toWalletAccount = (account: InjectedAccount) => {
 
 class InjectedWallet implements BaseWallet {
   type = WalletType.INJECTED;
-  extension: WalletExtension | undefined;
+  extension: WalletExtension;
+  appName: string;
   injected: Injected | undefined;
   metadata: WalletMetadata;
   signer: Signer | undefined;
-  constructor(extension: WalletExtension) {
+  constructor(extension: WalletExtension, appName: string) {
     this.extension = extension;
     this.metadata = { ...extension.metadata };
+    this.appName = appName;
   }
   async getAccounts(): Promise<Account[]> {
     let injectedAccounts = await this.injected?.accounts.get();
     let walletAccounts = injectedAccounts?.map((account) => toWalletAccount(account));
     return walletAccounts || [];
   }
-  connect() {}
-  disconnect() {}
+  async connect() {
+    this.injected = await this.extension?.enable(this.appName);
+    this.signer = this.injected.signer;
+  }
+  async disconnect() {}
   isConnected() {
     return false;
   }
@@ -31,8 +36,12 @@ class InjectedWallet implements BaseWallet {
 
 export class InjectedWalletProvider implements BaseWalletProvider {
   config: ExtensionConfiguration;
-  constructor(config: ExtensionConfiguration) {
+  supportedOnly: boolean;
+  appName: string;
+  constructor(config: ExtensionConfiguration, appName: string, supportedOnly: boolean = false) {
     this.config = config;
+    this.supportedOnly = supportedOnly;
+    this.appName = appName;
   }
   getExtensions(): { known: WalletExtension[]; other: WalletExtension[] } {
     const injectedWindow = window as Window & InjectedWindow;
@@ -56,8 +65,11 @@ export class InjectedWalletProvider implements BaseWalletProvider {
   getWallets(): BaseWallet[] {
     let injectedWallets = [];
     let { known, other } = this.getExtensions();
-    let extensions = [...known, ...other];
-    injectedWallets = extensions.map((ext) => new InjectedWallet(ext));
+    let extensions = [...known];
+    if (!this.supportedOnly) {
+      extensions = [...extensions, ...other];
+    }
+    injectedWallets = extensions.map((ext) => new InjectedWallet(ext, this.appName));
     return injectedWallets;
   }
 }

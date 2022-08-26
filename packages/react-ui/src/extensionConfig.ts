@@ -1,6 +1,4 @@
-import { ExtensionConfiguration } from './types';
-
-export const extensionConfig: ExtensionConfiguration = {
+export const extensionConfig = {
   disallowed: [],
   supported: [
     {

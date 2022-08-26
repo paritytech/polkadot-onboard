@@ -1,16 +1,19 @@
-import { memo, useContext } from 'react';
-import { DotsamaWalletsContext } from '@dotsama-wallets/react';
-
-import SupportedWallets from './SupportedWallets';
+import { memo } from 'react';
+import { useWallets } from '@dotsama-wallets/react';
+import { BaseWallet } from '@dotsama-wallets/core';
+import Wallet from './Wallet';
 
 const Wallets = () => {
-  const { setupWallets, extensions } = useContext(DotsamaWalletsContext);
+  const { wallets } = useWallets();
 
-  return <>
-    <button onClick={setupWallets}>get extensions</button>
-    <SupportedWallets extensions={extensions} />
-    {/* <OtherWallets extensions={otherExtensions} /> */}
-  </>;
+  return (
+    <div>
+      <h2>Wallets:</h2>
+      {wallets.map((wallet: BaseWallet) => (
+        <Wallet key={wallet.metadata.title} wallet={wallet} />
+      ))}
+    </div>
+  );
 };
 
 export default memo(Wallets);
