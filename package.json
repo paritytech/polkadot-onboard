@@ -11,11 +11,9 @@
   "scripts": {
     "build:core": "cd packages/core && yarn build",
     "build:injected-wallets": "cd packages/injected-wallets && yarn build",
+    "build:wallet-connect": "cd packages/wallet-connect && yarn build",
     "build:react": "cd packages/react && yarn build",
-    "build-watch:core": "cd packages/core && yarn build:watch",
-    "build-watch:injected-wallets": "cd packages/injected-wallets && yarn build:watch",
-    "build-watch:react": "cd packages/react && yarn build:watch",
-    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
-    "start": "yarn build:core && yarn build:injected-wallets && yarn build:react && cd packages/react-demo && yarn start"
+    "start": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd packages/react-demo && yarn start",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   }
 }
