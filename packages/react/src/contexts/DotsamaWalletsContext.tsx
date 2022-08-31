@@ -1,59 +1,33 @@
-import { createContext, useState, useMemo, useCallback } from 'react';
-import { getExtensions, DotsamaWallet, DotsamaWalletBasic, ExtensionEnabler } from '@dotsama-wallets/core';
-import { Injected, InjectedAccount } from '@polkadot/extension-inject/types';
+import { createContext, useState, useMemo, useEffect, useContext } from 'react';
+import { BaseWallet, WalletAggregator } from '@dotsama-wallets/core';
 
 interface DotsamaWalletsContextProviderProps {
   children: any;
+  walletAggregator: WalletAggregator;
 }
 
 interface DotsamaWalletsContextProps {
-  setupWallets: () => void;
-  connectToExtension: (appName: string, extension: DotsamaWallet<ExtensionEnabler>) => Promise<{ injectedExtension: Injected; accounts: InjectedAccount[] }>;
-  extensions: DotsamaWallet<ExtensionEnabler>[];
-  otherExtensions: DotsamaWalletBasic<ExtensionEnabler>[];
+  wallets: BaseWallet[];
 }
 
-export const DotsamaWalletsContext = createContext<DotsamaWalletsContextProps>({
-  setupWallets: () => {},
-  connectToExtension: async () => ({ injectedExtension: {} as Injected, accounts: [] }),
-  extensions: [],
-  otherExtensions: [],
+const DotsamaWalletsContext = createContext<DotsamaWalletsContextProps>({
+  wallets: [],
 });
 
-export const DotsamaWalletsContextProvider = ({ children }: DotsamaWalletsContextProviderProps) => {
-  const [extensions, setExtensions] = useState<DotsamaWallet<ExtensionEnabler>[]>([]);
-  const [otherExtensions, setOtherExtensions] = useState<DotsamaWalletBasic<ExtensionEnabler>[]>([]);
+export const useWallets = () => useContext(DotsamaWalletsContext);
 
-  const connectToExtension = useCallback(
-    async (appName: string, extension: DotsamaWallet<ExtensionEnabler>) => {
-      // TODO extension connection should be separate from getting accounts, but for that will need ping functionality to get isConnected status
-      // currently we don't have that yet
-      // add try catches
-      const injectedExtension = await extension.enable(appName);
-      const accounts = await injectedExtension.accounts.get();
+export const DotsamaWalletsContextProvider = ({ children, walletAggregator }: DotsamaWalletsContextProviderProps) => {
+  const [wallets, setWallets] = useState<BaseWallet[]>([]);
 
-      return { injectedExtension, accounts };
-    },
-    [extensions, otherExtensions],
-  );
-
-  // initializer, gets all the extensions
-  const setupWallets = () => {
-    const { knownExtensions, otherExtensions } = getExtensions();
-    // const walletConnect = setupWalletConnect();
-
-    setExtensions([...knownExtensions]); // TODO: potentially can be [...knownExtensions, walletConnect]
-    setOtherExtensions([...otherExtensions]);
-  };
+  useEffect(() => {
+    setWallets(walletAggregator.getWallets());
+  }, [walletAggregator]);
 
   const contextData = useMemo(
     () => ({
-      setupWallets,
-      connectToExtension,
-      extensions,
-      otherExtensions,
+      wallets,
     }),
-    [setupWallets, connectToExtension, extensions, otherExtensions],
+    [wallets],
   );
 
   return <DotsamaWalletsContext.Provider value={contextData}>{children}</DotsamaWalletsContext.Provider>;

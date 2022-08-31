@@ -10,8 +10,9 @@
   ],
   "scripts": {
     "build:core": "cd packages/core && yarn build",
+    "build:injected-wallets": "cd packages/injected-wallets && yarn build",
     "build:react": "cd packages/react && yarn build",
-    "start": "yarn build:core && yarn build:react && cd packages/react-ui && yarn start",
+    "start": "yarn build:core && yarn build:injected-wallets && yarn build:react && cd packages/react-ui && yarn start",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   }
 }

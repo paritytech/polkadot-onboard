@@ -1,2 +1,2 @@
-export * from './core';
-export * from './interfaces';
+export * from './lib/walletAggregator';
+export * from './lib/types';

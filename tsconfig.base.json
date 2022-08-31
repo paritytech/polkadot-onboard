@@ -13,6 +13,6 @@
     "sourceMap": true,
     "strict": true,
     "target": "es6",
-    "types": ["node"],
+    "types": ["node"]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@dotsama-wallets/core",
+  "name": "@dotsama-wallets/injected-wallets",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -9,6 +9,8 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot/api": "^9.1.1"
+    "@polkadot/api": "^9.1.1",
+    "@polkadot/extension-inject": "^0.44.4",
+    "@dotsama-wallets/core": "^1.0.0"
   }
 }
