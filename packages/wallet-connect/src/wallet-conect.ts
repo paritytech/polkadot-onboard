@@ -2,7 +2,13 @@ import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } f
 import { Signer } from '@polkadot/api/types';
 import SignClient from '@walletconnect/sign-client';
 import QRCodeModal from '@walletconnect/qrcode-modal';
-import { WalletConnectConfiguration } from './types';
+import { SessionTypes } from '@walletconnect/types';
+import { WalletConnectConfiguration, WcAccount } from './types';
+
+const toWalletAccount = (wcAccount: WcAccount) => {
+  let address = wcAccount.split(':')[2];
+  return { address };
+};
 
 class WalletConnectWallet implements BaseWallet {
   type = WalletType.WALLET_CONNECT;
@@ -11,6 +17,7 @@ class WalletConnectWallet implements BaseWallet {
   config: WalletConnectConfiguration;
   client: SignClient | undefined;
   signer: Signer | undefined;
+  session: SessionTypes.Struct | undefined;
   constructor(config: WalletConnectConfiguration, appName: string) {
     this.config = config;
     this.appName = appName;
@@ -23,7 +30,14 @@ class WalletConnectWallet implements BaseWallet {
     };
   }
   async getAccounts(): Promise<Account[]> {
-    return [];
+    let accounts: Account[] = [];
+    if (this.session) {
+      let wcAccounts = Object.values(this.session.namespaces)
+        .map((namespace) => namespace.accounts)
+        .flat();
+      accounts = wcAccounts.map((wcAccount) => toWalletAccount(wcAccount as WcAccount));
+    }
+    return accounts;
   }
   async connect() {
     try {
@@ -48,10 +62,8 @@ class WalletConnectWallet implements BaseWallet {
       }
 
       // Await session approval from the wallet.
-      const session = await approval();
-      // Handle the returned session (e.g. update UI to "connected" state).
-      // await onSessionConnected(session);
-      console.log(session);
+      this.session = await approval();
+      console.log(this.session);
     } catch (e) {
       console.error(e);
     } finally {

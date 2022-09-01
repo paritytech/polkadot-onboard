@@ -47,17 +47,20 @@ export class InjectedWalletProvider implements BaseWalletProvider {
     const injectedWindow = window as Window & InjectedWindow;
     const knownExtensions: WalletExtension[] = [];
     const otherExtensions: WalletExtension[] = [];
-
-    Object.keys(injectedWindow.injectedWeb3).forEach((extensionId) => {
-      if (!this.config.disallowed?.includes(extensionId)) {
-        const foundExtension = this.config.supported?.find(({ id }) => id === extensionId);
-        if (foundExtension) {
-          knownExtensions.push({ ...injectedWindow.injectedWeb3[extensionId], metadata: foundExtension });
-        } else {
-          otherExtensions.push({ ...injectedWindow.injectedWeb3[extensionId], metadata: { id: extensionId, title: extensionId } });
+    if (injectedWindow?.injectedWeb3) {
+      Object.keys(injectedWindow.injectedWeb3).forEach((extensionId) => {
+        if (!this.config.disallowed?.includes(extensionId)) {
+          const foundExtension = this.config.supported?.find(({ id }) => id === extensionId);
+          if (foundExtension) {
+            knownExtensions.push({ ...injectedWindow.injectedWeb3[extensionId], metadata: foundExtension });
+          } else {
+            otherExtensions.push({ ...injectedWindow.injectedWeb3[extensionId], metadata: { id: extensionId, title: extensionId } });
+          }
         }
-      }
-    });
+      });
+    } else {
+      console.log('no extension was detected!');
+    }
 
     return { known: knownExtensions, other: otherExtensions };
   }
