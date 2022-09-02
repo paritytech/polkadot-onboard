@@ -1,2 +1,2 @@
-export * from './wallet-conect';
+export * from './wallet-connect';
 export * from './';
