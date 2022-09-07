@@ -86,7 +86,7 @@ class WalletConnectWallet implements BaseWallet {
   }
   async disconnect() {}
   isConnected() {
-    return false;
+    return !!(this.client && this.signer && this.session);
   }
 }
 
