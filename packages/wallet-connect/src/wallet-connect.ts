@@ -84,7 +84,18 @@ class WalletConnectWallet implements BaseWallet {
       QRCodeModal.close();
     }
   }
-  async disconnect() {}
+  async disconnect() {
+    if (this.session?.topic) {
+      this.client?.disconnect({
+        topic: this.session?.topic,
+        reason: {
+          code: -1,
+          message: 'Disconnected by client!',
+        },
+      });
+    }
+    this.reset();
+  }
   isConnected() {
     return !!(this.client && this.signer && this.session);
   }
