@@ -6,6 +6,8 @@ import { SessionTypes } from '@walletconnect/types';
 import { WalletConnectSigner } from './signer';
 import { WalletConnectConfiguration, WcAccount } from './types';
 
+export const CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
+
 const toWalletAccount = (wcAccount: WcAccount) => {
   let address = wcAccount.split(':')[2];
   return { address };
@@ -19,6 +21,7 @@ class WalletConnectWallet implements BaseWallet {
   client: SignClient | undefined;
   signer: Signer | undefined;
   session: SessionTypes.Struct | undefined;
+
   constructor(config: WalletConnectConfiguration, appName: string) {
     this.config = config;
     this.appName = appName;
@@ -30,11 +33,13 @@ class WalletConnectWallet implements BaseWallet {
       version: '2.0',
     };
   }
+
   reset(): void {
     this.client = undefined;
     this.session = undefined;
     this.signer = undefined;
   }
+
   async getAccounts(): Promise<Account[]> {
     let accounts: Account[] = [];
     if (this.session) {
@@ -45,6 +50,7 @@ class WalletConnectWallet implements BaseWallet {
     }
     return accounts;
   }
+
   async connect() {
     try {
       // reset the client
@@ -57,7 +63,7 @@ class WalletConnectWallet implements BaseWallet {
         requiredNamespaces: {
           polkadot: {
             methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
-            chains: ['polkadot:91b171bb158e2d3848fa23a9f1c25182'],
+            chains: [CHAIN_ID],
             events: [],
           },
         },
@@ -75,7 +81,7 @@ class WalletConnectWallet implements BaseWallet {
       // setup the client
       this.client = client;
       this.session = session;
-      this.signer = new WalletConnectSigner(client, session);
+      this.signer = new WalletConnectSigner(client, session, CHAIN_ID);
       console.log(this.session);
     } catch (e) {
       console.error(e);
@@ -84,6 +90,7 @@ class WalletConnectWallet implements BaseWallet {
       QRCodeModal.close();
     }
   }
+
   async disconnect() {
     if (this.session?.topic) {
       this.client?.disconnect({
@@ -96,6 +103,7 @@ class WalletConnectWallet implements BaseWallet {
     }
     this.reset();
   }
+
   isConnected() {
     return !!(this.client && this.signer && this.session);
   }
@@ -104,6 +112,7 @@ class WalletConnectWallet implements BaseWallet {
 export class WalletConnectProvider implements BaseWalletProvider {
   config: WalletConnectConfiguration;
   appName: string;
+
   constructor(config: WalletConnectConfiguration, appName: string) {
     this.config = config;
     this.appName = appName;

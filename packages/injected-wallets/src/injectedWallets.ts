@@ -47,7 +47,7 @@ export class InjectedWalletProvider implements BaseWalletProvider {
     const injectedWindow = window as Window & InjectedWindow;
     const knownExtensions: WalletExtension[] = [];
     const otherExtensions: WalletExtension[] = [];
-    if (injectedWindow?.injectedWeb3) {
+    if (injectedWindow.injectedWeb3) {
       Object.keys(injectedWindow.injectedWeb3).forEach((extensionId) => {
         if (!this.config.disallowed?.includes(extensionId)) {
           const foundExtension = this.config.supported?.find(({ id }) => id === extensionId);
