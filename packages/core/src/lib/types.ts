@@ -11,7 +11,7 @@ export interface Account {
 
 export enum WalletType {
   INJECTED = 'INJECTED',
-  WC = 'WALLET_CONNECT',
+  WALLET_CONNECT = 'WALLET_CONNECT',
   LEDGER = 'LEDGER',
 }
 

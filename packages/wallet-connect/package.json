@@ -1,0 +1,21 @@
+{
+  "name": "@dotsama-wallets/wallet-connect",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist/ && npm run format && tsc --build",
+    "build:watch": "tsc --watch",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "@dotsama-wallets/core": "^1.0.0",
+    "@polkadot/api": "^9.1.1",
+    "@walletconnect/qrcode-modal": "^1.8.0",
+    "@walletconnect/sign-client": "2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@polkadot/types": "^9.2.4",
+    "@walletconnect/types": "2.0.0-rc.1"
+  }
+}
