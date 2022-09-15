@@ -7,8 +7,10 @@ import { extensionConfig } from '../extensionConfig';
 import Wallets from './Wallets';
 import { useState } from 'react';
 
+const APP_NAME = 'Dotsama Demo';
+
 const App = () => {
-  let injectedWalletProvider = new InjectedWalletProvider(extensionConfig, 'Dotsama Demo');
+  let injectedWalletProvider = new InjectedWalletProvider(extensionConfig, APP_NAME);
   let walletConnectParams = {
     projectId: '4fae85e642724ee66587fa9f37b997e2',
     relayUrl: 'wss://relay.walletconnect.com',
@@ -19,7 +21,7 @@ const App = () => {
       icons: ['https://walletconnect.com/walletconnect-logo.png'],
     },
   };
-  let walletConnectProvider = new WalletConnectProvider(walletConnectParams);
+  let walletConnectProvider = new WalletConnectProvider(walletConnectParams, APP_NAME);
   let walletAggregator = new WalletAggregator([injectedWalletProvider, walletConnectProvider]);
   let [showWallets, setShowWallets] = useState(false);
   return (
