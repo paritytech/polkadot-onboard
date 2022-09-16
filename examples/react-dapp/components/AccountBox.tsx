@@ -18,7 +18,9 @@ interface AccountBoxParams {
 }
 
 export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
-  const signTransactionHandler = async () => {
+  const signTransactionHandler = async (event: any) => {
+    event.preventDefault();
+    event.stopPropagation();
     if (api && account?.address && signer) {
       const decimals = api.registry.chainDecimals[0];
 
@@ -27,8 +29,9 @@ export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
       });
     }
   };
-
-  const signMessageHandler = async () => {
+  const signMessageHandler = async (event: any) => {
+    event.preventDefault();
+    event.stopPropagation();
     const signRaw = signer?.signRaw;
 
     if (!!signRaw && account?.address) {
@@ -45,10 +48,10 @@ export const AccountBox = ({ api, account, signer }: AccountBoxParams) => {
       <div className={`${styles.name}`}>{shorten(account?.name)}</div>
       <div className={`${styles.address}`}>{shorten(account?.address)}</div>
       <div className={`${styles.flex} ${styles.column}`}>
-        <button className={`${styles.btn} ${styles.small}`} onClick={() => signTransactionHandler()}>
+        <button className={`${styles.btn} ${styles.small}`} onClick={(e) => signTransactionHandler(e)}>
           Submit Transaction
         </button>
-        <button className={`${styles.btn} ${styles.small}`} onClick={() => signMessageHandler()}>
+        <button className={`${styles.btn} ${styles.small}`} onClick={(e) => signMessageHandler(e)}>
           Sign Message
         </button>
       </div>
