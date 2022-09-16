@@ -15,6 +15,7 @@
     "build:wallet-connect": "cd packages/wallet-connect && yarn build",
     "build:react": "cd packages/react && yarn build",
     "start": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd packages/react-demo && yarn start",
+    "start:react-dapp": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd examples/react-dapp && yarn dev",
     "build": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd packages/react-demo && yarn build",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   }
