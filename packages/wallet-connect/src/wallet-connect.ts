@@ -7,6 +7,7 @@ import { WalletConnectSigner } from './signer';
 import { WalletConnectConfiguration, WcAccount } from './types';
 
 export const CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
+export const WC_VERSION = '2.0';
 
 const toWalletAccount = (wcAccount: WcAccount) => {
   let address = wcAccount.split(':')[2];
@@ -30,7 +31,7 @@ class WalletConnectWallet implements BaseWallet {
       description: config.metadata?.description || '',
       urls: { main: config.metadata?.url || '' },
       iconUrl: config.metadata?.icons[0] || '',
-      version: '2.0',
+      version: WC_VERSION,
     };
   }
 
@@ -52,43 +53,41 @@ class WalletConnectWallet implements BaseWallet {
   }
 
   async connect() {
-    try {
-      // reset the client
-      this.reset();
+    // reset the client
+    this.reset();
 
-      // init the client
-      let client = await SignClient.init(this.config);
-
-      const { uri, approval } = await client.connect({
-        requiredNamespaces: {
-          polkadot: {
-            methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
-            chains: [CHAIN_ID],
-            events: [],
-          },
+    // init the client
+    let client = await SignClient.init(this.config);
+    let params = {
+      requiredNamespaces: {
+        polkadot: {
+          methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
+          chains: [CHAIN_ID],
+          events: [],
         },
-      });
+      },
+    };
 
+    const { uri, approval } = await client.connect(params);
+    return new Promise<void>((resolve, reject) => {
       // Open QRCode modal if a URI was returned (i.e. we're not connecting an existing pairing).
       if (uri) {
         QRCodeModal.open(uri, () => {
-          console.log('EVENT', 'QR Code Modal closed');
+          reject(new Error('Canceled pairing. QR Code Modal closed.'));
         });
       }
-
       // Await session approval from the wallet.
-      let session = await approval();
-      // setup the client
-      this.client = client;
-      this.session = session;
-      this.signer = new WalletConnectSigner(client, session, CHAIN_ID);
-      console.log(this.session);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      // Close the QRCode modal in case it was open.
-      QRCodeModal.close();
-    }
+      approval()
+        .then((session) => {
+          // setup the client
+          this.client = client;
+          this.session = session;
+          this.signer = new WalletConnectSigner(client, session, CHAIN_ID);
+          resolve();
+        })
+        .catch(reject)
+        .finally(() => QRCodeModal.close());
+    });
   }
 
   async disconnect() {
