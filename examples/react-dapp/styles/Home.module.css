@@ -60,6 +60,10 @@
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+.card.shadow {
+  box-shadow: 3px 3px 5px grey;
+}
+
 .wallet {
   width: 350px;
   line-height: 1.5;

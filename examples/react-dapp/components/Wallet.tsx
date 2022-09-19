@@ -37,7 +37,7 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
   };
 
   return (
-    <div className={`${styles.card}`} style={{ marginBottom: '20px' }} onClick={walletClickHandler}>
+    <div className={`${styles.card} ${styles.shadow}`} style={{ marginBottom: '20px' }} onClick={walletClickHandler}>
       <div className={`${styles.walletheader}`}>{`${wallet.metadata.title} ${wallet.metadata.version || ''}`}</div>
       <div className={`${styles.wallet}`}>
         {accounts.length > 0 &&
