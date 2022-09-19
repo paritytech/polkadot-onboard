@@ -21,7 +21,6 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
   }, []);
 
   const walletClickHandler = async (event: MouseEvent) => {
-    console.log(`wallet clicked!`);
     if (!isBusy) {
       try {
         setIsBusy(true);
