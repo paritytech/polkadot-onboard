@@ -20,7 +20,8 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
     setupApi();
   }, []);
 
-  const walletClickHandler = async (event: MouseEvent) => {
+  const walletClickHandler = async (event: React.MouseEvent) => {
+    console.log(`wallet clicked!`);
     if (!isBusy) {
       try {
         setIsBusy(true);
