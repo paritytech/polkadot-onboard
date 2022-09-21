@@ -1,4 +1,4 @@
-# dotsama-wallets
+# polkadot-wallets
 
 ## install:
 

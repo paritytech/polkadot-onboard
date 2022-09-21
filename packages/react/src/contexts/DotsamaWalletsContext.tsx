@@ -1,22 +1,22 @@
 import { createContext, useState, useMemo, useEffect, useContext } from 'react';
-import { BaseWallet, WalletAggregator } from '@dotsama-wallets/core';
+import { BaseWallet, WalletAggregator } from '@polkadot-wallets/core';
 
-interface DotsamaWalletsContextProviderProps {
+interface PolkadotWalletsContextProviderProps {
   children: any;
   walletAggregator: WalletAggregator;
 }
 
-interface DotsamaWalletsContextProps {
+interface PolkadotWalletsContextProps {
   wallets: BaseWallet[];
 }
 
-const DotsamaWalletsContext = createContext<DotsamaWalletsContextProps>({
+const PolkadotWalletsContext = createContext<PolkadotWalletsContextProps>({
   wallets: [],
 });
 
-export const useWallets = () => useContext(DotsamaWalletsContext);
+export const useWallets = () => useContext(PolkadotWalletsContext);
 
-export const DotsamaWalletsContextProvider = ({ children, walletAggregator }: DotsamaWalletsContextProviderProps) => {
+export const PolkadotWalletsContextProvider = ({ children, walletAggregator }: PolkadotWalletsContextProviderProps) => {
   const [wallets, setWallets] = useState<BaseWallet[]>([]);
 
   useEffect(() => {
@@ -30,5 +30,5 @@ export const DotsamaWalletsContextProvider = ({ children, walletAggregator }: Do
     [wallets],
   );
 
-  return <DotsamaWalletsContext.Provider value={contextData}>{children}</DotsamaWalletsContext.Provider>;
+  return <PolkadotWalletsContext.Provider value={contextData}>{children}</PolkadotWalletsContext.Provider>;
 };

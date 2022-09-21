@@ -1,1 +1,1 @@
-export * from './DotsamaWalletsContext';
+export * from './PolkadotWalletsContext';

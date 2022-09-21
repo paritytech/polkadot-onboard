@@ -1,7 +1,7 @@
 {
-  "name": "dotsama-wallets",
+  "name": "polkadot-wallets",
   "version": "1.0.0",
-  "repository": "https://github.com/SaltyCucumber/dotsama-wallets.git",
+  "repository": "https://github.com/SaltyCucumber/polkadot-wallets.git",
   "author": "saltycucumber",
   "license": "MIT",
   "private": true,

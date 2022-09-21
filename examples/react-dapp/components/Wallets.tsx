@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { useWallets } from '@dotsama-wallets/react';
-import { BaseWallet } from '@dotsama-wallets/core';
+import { useWallets } from '@polkadot-wallets/react';
+import { BaseWallet } from '@polkadot-wallets/core';
 import Wallet from './Wallet';
 
 const Wallets = () => {

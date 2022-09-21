@@ -1,5 +1,5 @@
 {
-  "name": "@dotsama-wallets/injected-wallets",
+  "name": "@polkadot-wallets/injected-wallets",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -11,6 +11,6 @@
   "dependencies": {
     "@polkadot/api": "^9.1.1",
     "@polkadot/extension-inject": "^0.44.4",
-    "@dotsama-wallets/core": "^1.0.0"
+    "@polkadot-wallets/core": "^1.0.0"
   }
 }
