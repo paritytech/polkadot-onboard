@@ -5,6 +5,13 @@ _@polkadot-wallets_ provides a set of packages for developers to easily onboard 
 ## install the packages:
 
 ```ts
+// npm
+npm install \
+ @polkadot-wallets/core\
+ @polkadot-wallets/injected-wallets\
+ @polkadot-wallets/wallet-connect\
+ @polkadot-wallets/react
+
 // yarn
 yarn add \
  @polkadot-wallets/core\
