@@ -48,15 +48,15 @@ const ConnectContainer = () => {
     return (
         <PolkadotWalletsContextProvider walletAggregator={walletAggregator}>
         /*
-        all wallets are available in this context to all subcomponents.
+        all wallets are available inside this context to all subcomponents.
 
         const { wallets } = useWallets();
 
-        each wallet provides a universal interface inclusing a signer which can be used to sign messages and transactions:
+        each wallet provides a universal interface including a signer that can be used to sign messages and transactions:
 
         interface BaseWallet {
             ...
-            signer: Signer | undefined;
+            signer: Signer | undefined; // signer is available after the connect() is called.
             connect: () => Promise<void>;
             disconnect: () => Promise<void>;
             isConnected: () => boolean;
