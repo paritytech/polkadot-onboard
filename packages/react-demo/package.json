@@ -1,15 +1,15 @@
 {
-  "name": "@dotsama-wallets/react-demo",
+  "name": "@polkadot-wallets/react-demo",
   "version": "1.0.0",
   "scripts": {
     "build": "rm -rf ./dist/ && tsc --build",
     "start": "webpack serve --open --config ./webpack.js"
   },
   "dependencies": {
-    "@dotsama-wallets/react": "^1.0.0",
-    "@dotsama-wallets/core": "^1.0.0",
-    "@dotsama-wallets/injected-wallets": "^1.0.0",
-    "@dotsama-wallets/wallet-connect": "^1.0.0",
+    "@polkadot-wallets/react": "^1.0.0",
+    "@polkadot-wallets/core": "^1.0.0",
+    "@polkadot-wallets/injected-wallets": "^1.0.0",
+    "@polkadot-wallets/wallet-connect": "^1.0.0",
     "@polkadot/api": "^9.1.1",
     "@polkadot/extension-inject": "^0.44.4",
     "ethers": "^5.6.9",

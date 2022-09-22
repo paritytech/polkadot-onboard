@@ -1,7 +1,7 @@
 import { FormEvent, memo, useCallback, useEffect, useState } from 'react';
 import { utils } from 'ethers';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { BaseWallet, Account } from '@dotsama-wallets/core';
+import { BaseWallet, Account } from '@polkadot-wallets/core';
 
 interface SendTransactionData {
   senderAddress: string;
@@ -31,7 +31,7 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
         await wallet.connect();
         let accounts = await wallet.getAccounts();
         setAccounts(accounts);
-      } catch(error) {
+      } catch (error) {
         // handle error
       } finally {
         setIsBusy(false);

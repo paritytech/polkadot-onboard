@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { BaseWallet, Account } from '@dotsama-wallets/core';
+import { BaseWallet, Account } from '@polkadot-wallets/core';
 import { AccountBox } from './AccountBox';
 import styles from '../styles/Home.module.css';
 

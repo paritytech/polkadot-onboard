@@ -1,4 +1,4 @@
-import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@dotsama-wallets/core';
+import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-wallets/core';
 import { Signer } from '@polkadot/api/types';
 import SignClient from '@walletconnect/sign-client';
 import QRCodeModal from '@walletconnect/qrcode-modal';
