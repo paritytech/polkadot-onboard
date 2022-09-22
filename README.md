@@ -73,6 +73,6 @@ check the full examples:
 - [headless](packages/react-demo/)
 - [react-next](examples/react-dapp)
 
-For wallet-connect there you need a mobile apps that supports wallet-connect.
+For wallet-connect you need a mobile apps that supports wallet-connect.
 [wallet-connect demo video](https://www.youtube.com/watch?v=5YkYi5HWeJQ)
 
