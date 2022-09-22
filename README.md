@@ -56,7 +56,7 @@ const ConnectContainer = () => {
 
         interface BaseWallet {
             ...
-            signer: Signer | undefined; // signer is available after the connect() is called.
+            signer: Signer | undefined; // signer is available after connect() is called.
             connect: () => Promise<void>;
             disconnect: () => Promise<void>;
             isConnected: () => boolean;
