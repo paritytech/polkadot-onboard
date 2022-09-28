@@ -48,7 +48,7 @@ const ConnectContainer = () => {
     return (
         <PolkadotWalletsContextProvider walletAggregator={walletAggregator}>
         /*
-        all wallets are available inside this context to all subcomponents.
+        all wallets are available inside this context to all children.
 
         const { wallets } = useWallets();
 
