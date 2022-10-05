@@ -14,9 +14,9 @@
     "build:injected-wallets": "cd packages/injected-wallets && yarn build",
     "build:wallet-connect": "cd packages/wallet-connect && yarn build",
     "build:react": "cd packages/react && yarn build",
-    "start": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd packages/react-demo && yarn start",
-    "start:react-dapp": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd examples/react-dapp && yarn dev",
-    "build": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react && cd packages/react-demo && yarn build",
+    "build": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react",
+    "start:react-headless": "yarn build && cd examples/react-headless && yarn start",
+    "start:react-next": "yarn build && cd examples/react-next && yarn dev",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   }
 }
