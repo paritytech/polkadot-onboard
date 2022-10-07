@@ -1,8 +1,13 @@
+import type { HexString } from '@polkadot/util/types';
 import { Signer, SignerResult } from '@polkadot/api/types';
 import { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import { TypeRegistry } from '@polkadot/types';
 import SignClient from '@walletconnect/sign-client';
 import { SessionTypes } from '@walletconnect/types';
+
+interface Signature {
+  signature: HexString;
+}
 
 export class WalletConnectSigner implements Signer {
   registry: TypeRegistry;
@@ -30,12 +35,12 @@ export class WalletConnectSigner implements Signer {
         params: { address: payload.address, transactionPayload: payload },
       },
     };
-    let { signature } = await this.client.request(request);
+    let { signature } = await this.client.request<Signature>(request);
     return { id: ++this.id, signature };
   };
 
   // this method is set this way to be bound to this class.
-  // It might be used outside of the object context to sign messaages.
+  // It might be used outside of the object context to sign messages.
   // ref: https://polkadot.js.org/docs/extension/cookbook#sign-a-message
   signRaw = async (raw: SignerPayloadRaw): Promise<SignerResult> => {
     let request = {
@@ -48,7 +53,7 @@ export class WalletConnectSigner implements Signer {
         params: { address: raw.address, message: raw.data },
       },
     };
-    let { signature } = await this.client.request(request);
+    let { signature } = await this.client.request<Signature>(request);
     return { id: ++this.id, signature };
   };
 }
