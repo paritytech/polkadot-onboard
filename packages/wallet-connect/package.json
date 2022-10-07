@@ -1,5 +1,5 @@
 {
-  "name": "@polkadot-wallets/wallet-connect",
+  "name": "@polkadot-onboard/wallet-connect",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -9,7 +9,7 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-wallets/core": "^1.0.0",
+    "@polkadot-onboard/core": "^1.0.0",
     "@polkadot/api": "^9.1.1",
     "@walletconnect/qrcode-modal": "^1.8.0",
     "@walletconnect/sign-client": "2.0.0-rc.1"

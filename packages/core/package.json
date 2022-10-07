@@ -1,5 +1,5 @@
 {
-  "name": "@polkadot-wallets/core",
+  "name": "@polkadot-onboard/core",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",

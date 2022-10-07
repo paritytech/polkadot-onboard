@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo, useEffect, useContext } from 'react';
-import { BaseWallet, WalletAggregator } from '@polkadot-wallets/core';
+import { BaseWallet, WalletAggregator } from '@polkadot-onboard/core';
 
 interface PolkadotWalletsContextProviderProps {
   children: any;
