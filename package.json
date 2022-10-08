@@ -1,20 +1,34 @@
 {
-  "name": "polkadot-wallets",
-  "version": "1.0.0",
-  "repository": "https://github.com/SaltyCucumber/polkadot-wallets.git",
-  "author": "saltycucumber",
-  "license": "MIT",
-  "private": true,
+  "name": "polkadot-wallet-onboard",
+  "version": "0.0.1-beta",
+  "author": "Parity Team <admin@parity.io>",
+  "maintainers": [
+    "hamidra <hamid.alipour@gmail.com>",
+    "saltycucumber"
+  ],
+  "repository": {
+    "directory": "packages/core",
+    "type": "git",
+    "url": "https://github.com/paritytech/polkadot-wallet-onboard.git"
+  },
+  "bugs": "https://github.com/paritytech/polkadot-wallet-onboard.git/issues",
+  "homepage": "https://github.com/paritytech/polkadot-wallet-onboard.git#readme",
+  "license": "Apache-2.0",
+  "private": "true",
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "scripts": {
     "build:core": "cd packages/core && yarn build",
     "build:injected-wallets": "cd packages/injected-wallets && yarn build",
     "build:wallet-connect": "cd packages/wallet-connect && yarn build",
     "build:react": "cd packages/react && yarn build",
-    "build": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react",
+    "build:workspace": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react",
+    "publish:core": "cd packages/core && yarn publish --access public",
+    "publish:injected-wallets": "cd packages/injected-wallets && yarn publish --access public",
+    "publish:wallet-connect": "cd packages/wallet-connect && yarn publish --access public",
+    "publish:react": "cd packages/react && yarn publish --access public",
+    "publish:workspace": "yarn publish:core && yarn publish:injected-wallets && yarn publish:wallet-connect && yarn publish:react",
     "start:react-headless": "yarn build && cd examples/react-headless && yarn start",
     "start:react-next": "yarn build && cd examples/react-next && yarn dev",
     "format": "prettier --write \"./{examples,packages}/**/*.{ts,tsx}\""

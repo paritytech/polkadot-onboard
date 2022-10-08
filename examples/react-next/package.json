@@ -1,6 +1,7 @@
 {
   "name": "react-dapp",
-  "version": "0.1.0",
+  "version": "0.0.1-beta",
+  "license": "Apache-2.0",
   "private": true,
   "homepage": "https://paritytech.github.io/wallet-aggregator-sdk",
   "scripts": {
