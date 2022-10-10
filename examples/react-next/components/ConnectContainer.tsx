@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { PolkadotWalletsContextProvider } from '@polkadot-wallets/react';
-import { WalletAggregator } from '@polkadot-wallets/core';
-import { InjectedWalletProvider } from '@polkadot-wallets/injected-wallets';
-import { WalletConnectProvider } from '@polkadot-wallets/wallet-connect';
+import { PolkadotWalletsContextProvider } from '@polkadot-onboard/react';
+import { WalletAggregator } from '@polkadot-onboard/core';
+import { InjectedWalletProvider } from '@polkadot-onboard/injected-wallets';
+import { WalletConnectProvider } from '@polkadot-onboard/wallet-connect';
 import { extensionConfig } from 'provider-configs/extensionConfig';
 import styles from 'styles/Home.module.css';
 

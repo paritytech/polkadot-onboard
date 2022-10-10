@@ -1,5 +1,5 @@
 import { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
-import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-wallets/core';
+import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-onboard/core';
 import { Signer } from '@polkadot/api/types';
 import { ExtensionConfiguration, WalletExtension } from './types';
 

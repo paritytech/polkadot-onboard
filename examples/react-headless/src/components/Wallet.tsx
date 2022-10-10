@@ -1,7 +1,7 @@
 import { FormEvent, memo, useCallback, useEffect, useState } from 'react';
 import { utils } from 'ethers';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { BaseWallet, Account } from '@polkadot-wallets/core';
+import { BaseWallet, Account } from '@polkadot-onboard/core';
 
 interface SendTransactionData {
   senderAddress: string;

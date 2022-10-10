@@ -1,6 +1,19 @@
 {
-  "name": "@polkadot-wallets/wallet-connect",
-  "version": "1.0.0",
+  "name": "@polkadot-onboard/wallet-connect",
+  "version": "0.0.2-beta",
+  "author": "Parity Team <admin@parity.io>",
+  "maintainers": [
+    "hamidra <hamid.alipour@gmail.com>",
+    "saltycucumber"
+  ],
+  "repository": {
+    "directory": "packages/core",
+    "type": "git",
+    "url": "https://github.com/paritytech/polkadot-wallet-onboard.git"
+  },
+  "bugs": "https://github.com/paritytech/polkadot-wallet-onboard.git/issues",
+  "homepage": "https://github.com/paritytech/polkadot-wallet-onboard.git#readme",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
@@ -9,13 +22,15 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-wallets/core": "^1.0.0",
+    "@polkadot-onboard/core": "^0.0.2-beta",
     "@polkadot/api": "^9.1.1",
     "@walletconnect/qrcode-modal": "^1.8.0",
     "@walletconnect/sign-client": "2.0.0-rc.1"
   },
   "devDependencies": {
     "@polkadot/types": "^9.2.4",
-    "@walletconnect/types": "2.0.0-rc.1"
+    "@walletconnect/types": "2.0.0-rc.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
   }
 }
