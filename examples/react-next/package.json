@@ -1,12 +1,13 @@
 {
   "name": "react-dapp",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "license": "Apache-2.0",
   "private": true,
-  "homepage": "https://paritytech.github.io/wallet-aggregator-sdk",
+  "homepage": "https://paritytech.github.io/polkadot-wallet-onboard",
   "scripts": {
     "dev": "next dev",
-    "build": "next build & next export",
+    "build": "next build && next export",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -t -d out",
     "start": "next start",
     "lint": "next lint"

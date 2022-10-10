@@ -2,7 +2,7 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
-  assetPrefix: isProd ? '/wallet-aggregator-sdk/' : '',
+  assetPrefix: isProd ? '/polkadot-wallet-onboard/' : '',
   reactStrictMode: true,
   swcMinify: true,
   images: {

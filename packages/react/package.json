@@ -22,7 +22,7 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-onboard/core": "^0.0.1-beta",
+    "@polkadot-onboard/core": "^0.0.2-beta",
     "@polkadot/extension-inject": "^0.44.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
