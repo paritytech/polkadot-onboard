@@ -4,7 +4,7 @@
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
-    "saltycucumber"
+    "saltycucumber <vadim.sav@gmail.com>"
   ],
   "repository": {
     "directory": "packages/core",
