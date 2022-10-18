@@ -5,7 +5,7 @@ export const extensionConfig = {
       id: 'polkadot-js',
       title: 'polkadotJS',
       description: 'Basic account injection and signer',
-      downloadUrls: {
+      urls: {
         main: '',
         browsers: {
           chrome: 'https://chrome.google.com/webstore/detail/polkadot%7Bjs%7D-extension/mopnmbcafieddcagagdcbnhejhlodfdd',
