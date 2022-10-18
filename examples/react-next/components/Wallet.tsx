@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BaseWallet, Account } from '@polkadot-onboard/core';
 import { AccountBox } from './AccountBox';
@@ -38,7 +39,12 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
 
   return (
     <div className={`${styles.card} ${styles.shadow}`} style={{ marginBottom: '20px' }} onClick={walletClickHandler}>
-      <div className={`${styles.walletheader}`}>{`${wallet.metadata.title} ${wallet.metadata.version || ''}`}</div>
+      <div className={`${styles.walletheader}`}>
+        <div style={{ margin: 5, display: 'flex', alignItems: 'center' }}>
+          {wallet?.metadata?.iconUrl && <Image width={45} height={45} src={wallet.metadata.iconUrl} />}
+        </div>
+        <div>{`${wallet.metadata.title} ${wallet.metadata.version || ''}`}</div>
+      </div>
       <div className={`${styles.wallet}`}>
         {accounts.length > 0 &&
           accounts.map(({ address, name = '' }) => (

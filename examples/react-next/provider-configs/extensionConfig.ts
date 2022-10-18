@@ -5,13 +5,14 @@ export const extensionConfig = {
       id: 'polkadot-js',
       title: 'polkadotJS',
       description: 'Basic account injection and signer',
-      urls: {
+      downloadUrls: {
         main: '',
         browsers: {
           chrome: 'https://chrome.google.com/webstore/detail/polkadot%7Bjs%7D-extension/mopnmbcafieddcagagdcbnhejhlodfdd',
           firefox: 'https://addons.mozilla.org/en-US/firefox/addon/polkadot-js-extension/',
         },
       },
+      iconUrl: '/images/polkadot-js.svg',
     },
     {
       id: 'talisman',
@@ -24,6 +25,7 @@ export const extensionConfig = {
           firefox: 'https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/',
         },
       },
+      iconUrl: '/images/talisman-icon.svg',
     },
   ],
 };

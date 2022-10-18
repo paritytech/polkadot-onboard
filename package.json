@@ -16,7 +16,8 @@
   "license": "Apache-2.0",
   "private": "true",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "build:core": "cd packages/core && yarn build",
@@ -29,8 +30,8 @@
     "publish:wallet-connect": "cd packages/wallet-connect && yarn publish --access public",
     "publish:react": "cd packages/react && yarn publish --access public",
     "publish:workspace": "yarn publish:core && yarn publish:injected-wallets && yarn publish:wallet-connect && yarn publish:react",
-    "start:react-headless": "yarn build && cd examples/react-headless && yarn start",
-    "start:react-next": "yarn build && cd examples/react-next && yarn dev",
+    "start:react-headless": "yarn build:workspace && cd examples/react-headless && yarn start",
+    "start:react-next": "yarn build:workspace && cd examples/react-next && yarn dev",
     "format": "prettier --write \"./{examples,packages}/**/*.{ts,tsx}\""
   }
 }

@@ -19,7 +19,7 @@ const ConnectContainer = () => {
       name: 'Polkadot Demo',
       description: 'Polkadot Demo',
       url: '#',
-      icons: ['https://walletconnect.com/walletconnect-logo.png'],
+      icons: ['/images/wallet-connect.svg'],
     },
   };
   let walletConnectProvider = new WalletConnectProvider(walletConnectParams, APP_NAME);
