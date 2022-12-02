@@ -42,8 +42,8 @@ const ConnectContainer = () => {
         },
     };
     let walletAggregator = new WalletAggregator([
-            new InjectedWalletProvider({}, 'wallets example'),
-            new WalletConnectProvider(walletConnectParams, 'wallets example')
+            new InjectedWalletProvider({}, APP_NAME),
+            new WalletConnectProvider(walletConnectParams, APP_NAME)
     ]);
     return (
         <PolkadotWalletsContextProvider walletAggregator={walletAggregator}>
