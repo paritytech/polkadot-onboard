@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/injected-wallets",
-  "version": "0.0.3-beta",
+  "version": "0.0.4-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
