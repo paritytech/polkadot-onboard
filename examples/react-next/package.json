@@ -1,5 +1,5 @@
 {
-  "name": "react-dapp",
+  "name": "react-next",
   "version": "0.0.2-beta",
   "license": "Apache-2.0",
   "private": true,
@@ -12,10 +12,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@polkadot-onboard/core": "^0.0.5-beta",
-    "@polkadot-onboard/injected-wallets": "^0.0.5-beta",
-    "@polkadot-onboard/react": "^0.0.5-beta",
-    "@polkadot-onboard/wallet-connect": "^0.0.5-beta",
+    "@polkadot-onboard/core": "^0.0.6-beta",
+    "@polkadot-onboard/injected-wallets": "^0.0.6-beta",
+    "@polkadot-onboard/react": "^0.0.6-beta",
+    "@polkadot-onboard/wallet-connect": "^0.0.6-beta",
     "@polkadot/api": "^9.11.1",
     "@polkadot/extension-inject": "^0.44.8",
     "next": "13.1.2",

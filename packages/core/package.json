@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/core",
-  "version": "0.0.5-beta",
+  "version": "0.0.6-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",

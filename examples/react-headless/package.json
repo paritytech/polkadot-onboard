@@ -19,7 +19,7 @@
     "start": "webpack serve --open --config ./webpack.js"
   },
   "dependencies": {
-    "@polkadot-onboard/core": "^0.0.5-beta",
+    "@polkadot-onboard/core": "^0.0.6-beta",
     "@polkadot-onboard/injected-wallets": "^0.0.4-beta",
     "@polkadot-onboard/react": "^0.0.4-beta",
     "@polkadot-onboard/wallet-connect": "^0.0.4-beta",
