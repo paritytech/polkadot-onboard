@@ -1,4 +1,4 @@
-import type { Signer } from '@polkadot/api/types';
+import type { Signer } from '@polkadot/types/types';
 
 export type KeypairType = 'ed25519' | 'sr25519';
 

@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/core",
-  "version": "0.0.3-beta",
+  "version": "0.0.6-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -9,10 +9,10 @@
   "repository": {
     "directory": "packages/core",
     "type": "git",
-    "url": "https://github.com/paritytech/polkadot-wallet-onboard.git"
+    "url": "https://github.com/paritytech/polkadot-onboard.git"
   },
-  "bugs": "https://github.com/paritytech/polkadot-wallet-onboard.git/issues",
-  "homepage": "https://github.com/paritytech/polkadot-wallet-onboard.git#readme",
+  "bugs": "https://github.com/paritytech/polkadot-onboard.git/issues",
+  "homepage": "https://github.com/paritytech/polkadot-onboard.git#readme",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -22,11 +22,9 @@
     "build:watch": "tsc --watch",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
-  "dependencies": {
-    "@polkadot/api": "^9.1.1"
-  },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "@polkadot/types": "^9.11.1",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
   }
 }

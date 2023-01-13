@@ -1,10 +1,12 @@
-import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-onboard/core';
-import { Signer } from '@polkadot/api/types';
+import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
+import type { Signer } from '@polkadot/types/types';
+import type { SessionTypes } from '@walletconnect/types';
+import type { WalletConnectConfiguration, WcAccount } from './types';
+
+import { WalletType } from '@polkadot-onboard/core';
 import SignClient from '@walletconnect/sign-client';
 import QRCodeModal from '@walletconnect/qrcode-modal';
-import { SessionTypes } from '@walletconnect/types';
 import { WalletConnectSigner } from './signer';
-import { WalletConnectConfiguration, WcAccount } from './types';
 
 export const CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
 export const WC_VERSION = '2.0';

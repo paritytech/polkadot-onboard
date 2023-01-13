@@ -1,9 +1,10 @@
 import type { HexString } from '@polkadot/util/types';
-import { Signer, SignerResult } from '@polkadot/api/types';
-import { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
+import type { Signer, SignerResult } from '@polkadot/types/types';
+import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
+import type { SessionTypes } from '@walletconnect/types';
+
 import { TypeRegistry } from '@polkadot/types';
 import SignClient from '@walletconnect/sign-client';
-import { SessionTypes } from '@walletconnect/types';
 
 interface Signature {
   signature: HexString;
