@@ -14,7 +14,6 @@
   "bugs": "https://github.com/paritytech/polkadot-wallet-onboard.git/issues",
   "homepage": "https://github.com/paritytech/polkadot-wallet-onboard.git#readme",
   "license": "Apache-2.0",
-  "private": "true",
   "workspaces": [
     "packages/*",
     "examples/*"
@@ -31,5 +30,6 @@
     "start:react-headless": "yarn build:workspace && cd examples/react-headless && yarn start",
     "start:react-next": "yarn build:workspace && cd examples/react-next && yarn dev",
     "format": "prettier --write \"./{examples,packages}/**/*.{ts,tsx}\""
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }
