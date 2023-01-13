@@ -1,4 +1,4 @@
-import { Injected } from '@polkadot/extension-inject/types';
+import { InjectedWindowProvider } from '@polkadot/extension-inject/types';
 
 export interface ExtensionMetadata {
   id: string;
@@ -14,8 +14,6 @@ export interface ExtensionConfiguration {
   supported?: ExtensionMetadata[];
 }
 
-export interface WalletExtension {
+export interface WalletExtension extends InjectedWindowProvider {
   metadata: ExtensionMetadata;
-  enable: (origin: string) => Promise<Injected>;
-  version: string;
 }

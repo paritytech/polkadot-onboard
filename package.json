@@ -20,11 +20,9 @@
     "examples/*"
   ],
   "scripts": {
-    "build:core": "cd packages/core && yarn build",
-    "build:injected-wallets": "cd packages/injected-wallets && yarn build",
-    "build:wallet-connect": "cd packages/wallet-connect && yarn build",
-    "build:react": "cd packages/react && yarn build",
-    "build:workspace": "yarn build:core && yarn build:injected-wallets && yarn build:wallet-connect && yarn build:react",
+    "clean:workspace": "yarn workspace @polkadot-onboard/core cache clean && yarn workspace @polkadot-onboard/injected-wallets cache clean && yarn workspace @polkadot-onboard/wallet-connect cache clean && yarn workspace @polkadot-onboard/react cache clean",
+    "install:workspace": "yarn workspace @polkadot-onboard/core install && yarn workspace @polkadot-onboard/injected-wallets install && yarn workspace @polkadot-onboard/wallet-connect install && yarn workspace @polkadot-onboard/react install",
+    "build": "yarn workspace @polkadot-onboard/core build && yarn workspace @polkadot-onboard/injected-wallets build && yarn workspace @polkadot-onboard/wallet-connect build && yarn workspace @polkadot-onboard/react build",
     "publish:core": "cd packages/core && yarn publish --access public",
     "publish:injected-wallets": "cd packages/injected-wallets && yarn publish --access public",
     "publish:wallet-connect": "cd packages/wallet-connect && yarn publish --access public",

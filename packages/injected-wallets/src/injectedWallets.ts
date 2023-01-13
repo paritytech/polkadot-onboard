@@ -25,8 +25,21 @@ class InjectedWallet implements BaseWallet {
     return walletAccounts || [];
   }
   async connect() {
-    this.injected = await this.extension?.enable(this.appName);
-    this.signer = this.injected.signer;
+    try {
+      let injected: Injected | undefined;
+      if (this.extension?.connect) {
+        injected = await this.extension.connect(this.appName);
+      } else if (this.extension?.enable) {
+        injected = await this.extension.enable(this.appName);
+      } else {
+        throw new Error('No connect(..) or enable(...) hook found');
+      }
+
+      this.injected = injected;
+      this.signer = injected.signer;
+    } catch ({ message }) {
+      console.error(`Error initializing ${this.metadata.title}: ${message}`);
+    }
   }
   async disconnect() {}
   isConnected() {
@@ -59,7 +72,7 @@ export class InjectedWalletProvider implements BaseWalletProvider {
         }
       });
     } else {
-      console.log('no extension was detected!');
+      console.info('no extension was detected!');
     }
 
     return { known: knownExtensions, other: otherExtensions };
