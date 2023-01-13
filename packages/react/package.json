@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/react",
-  "version": "0.0.3-beta",
+  "version": "0.0.5-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -23,13 +23,14 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-onboard/core": "^0.0.2-beta",
-    "@polkadot/extension-inject": "^0.44.4",
+    "@polkadot-onboard/core": "^0.0.5-beta",
+    "@polkadot/extension-inject": "^0.44.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.21",
-    "typescript": "^4.8.4"
+    "@types/react": "^18.0.26",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
   }
 }

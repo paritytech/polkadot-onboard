@@ -1,7 +1,8 @@
-import { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
-import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-onboard/core';
-import { Signer } from '@polkadot/api/types';
-import { ExtensionConfiguration, WalletExtension } from './types';
+import type { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
+import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
+import type { Signer } from '@polkadot/types/types';
+import type { ExtensionConfiguration, WalletExtension } from './types';
+import { WalletType } from '@polkadot-onboard/core';
 
 const toWalletAccount = (account: InjectedAccount) => {
   return account as Account;
@@ -79,7 +80,7 @@ export class InjectedWalletProvider implements BaseWalletProvider {
   }
 
   getWallets(): BaseWallet[] {
-    let injectedWallets = [];
+    let injectedWallets: InjectedWallet[] = [];
     let { known, other } = this.getExtensions();
     let extensions = [...known];
     if (!this.supportedOnly) {
