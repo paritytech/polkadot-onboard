@@ -9,10 +9,10 @@
   "repository": {
     "directory": "packages/core",
     "type": "git",
-    "url": "https://github.com/paritytech/polkadot-wallet-onboard.git"
+    "url": "https://github.com/paritytech/polkadot-onboard.git"
   },
-  "bugs": "https://github.com/paritytech/polkadot-wallet-onboard.git/issues",
-  "homepage": "https://github.com/paritytech/polkadot-wallet-onboard.git#readme",
+  "bugs": "https://github.com/paritytech/polkadot-onboard.git/issues",
+  "homepage": "https://github.com/paritytech/polkadot-onboard.git#readme",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
