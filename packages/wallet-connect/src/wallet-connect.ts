@@ -1,9 +1,8 @@
-import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
+import { Account, BaseWallet, BaseWalletProvider, WalletMetadata, WalletType } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
 import type { WalletConnectConfiguration, WcAccount } from './types';
 
-import { WalletType } from '@polkadot-onboard/core';
 import SignClient from '@walletconnect/sign-client';
 import QRCodeModal from '@walletconnect/qrcode-modal';
 import { WalletConnectSigner } from './signer';

@@ -4,7 +4,7 @@
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
-    "saltycucumber"
+    "saltycucumber <vadim.sav@gmail.com>"
   ],
   "repository": {
     "directory": "packages/core",
@@ -14,12 +14,12 @@
   "bugs": "https://github.com/paritytech/polkadot-onboard.git/issues",
   "homepage": "https://github.com/paritytech/polkadot-onboard.git#readme",
   "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "types": "dist/types/index.d.ts",
-  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "build": "rm -rf ./dist/ && yarn format && tsc --build",
-    "build:watch": "tsc --watch",
+    "build": "rm -rf dist/ && yarn format && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc --outDir dist/esm",
+    "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
