@@ -21,7 +21,7 @@
   "scripts": {
     "clean:workspace": "yarn workspace @polkadot-onboard/core cache clean && yarn workspace @polkadot-onboard/injected-wallets cache clean && yarn workspace @polkadot-onboard/wallet-connect cache clean && yarn workspace @polkadot-onboard/react cache clean",
     "install:workspace": "yarn workspace @polkadot-onboard/core install && yarn workspace @polkadot-onboard/injected-wallets install && yarn workspace @polkadot-onboard/wallet-connect install && yarn workspace @polkadot-onboard/react install",
-    "build": "yarn workspace @polkadot-onboard/core build && yarn workspace @polkadot-onboard/injected-wallets build && yarn workspace @polkadot-onboard/wallet-connect build && yarn workspace @polkadot-onboard/react build",
+    "build:workspace": "yarn workspace @polkadot-onboard/core build && yarn workspace @polkadot-onboard/injected-wallets build && yarn workspace @polkadot-onboard/wallet-connect build && yarn workspace @polkadot-onboard/react build",
     "publish:core": "yarn workspace @polkadot-onboard/core npm publish --access public",
     "publish:injected-wallets": "yarn workspace @polkadot-onboard/injected-wallets npm publish --access public",
     "publish:wallet-connect": "yarn workspace @polkadot-onboard/wallet-connect npm publish --access public",

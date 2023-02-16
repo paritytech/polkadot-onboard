@@ -12,6 +12,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false, // disable the behaviour
+        },
+      },
+      {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
