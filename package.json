@@ -1,6 +1,6 @@
 {
   "name": "polkadot-onboard",
-  "version": "0.0.6-beta",
+  "version": "0.0.8-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -31,5 +31,6 @@
     "start:react-next": "yarn build:workspace && cd examples/react-next && yarn dev",
     "format": "prettier --write \"./{examples,packages}/**/*.{ts,tsx}\""
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.3.1",
+  "stableVersion": "0.0.6-beta"
 }

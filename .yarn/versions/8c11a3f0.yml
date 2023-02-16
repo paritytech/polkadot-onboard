@@ -1,0 +1,7 @@
+undecided:
+  - polkadot-onboard
+  - "@polkadot-onboard/react-demo"
+  - react-next
+  - "@polkadot-onboard/core"
+  - "@polkadot-onboard/injected-wallets"
+  - "@polkadot-onboard/react"
