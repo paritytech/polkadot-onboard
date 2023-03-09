@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/react-demo",
-  "version": "0.0.8-beta",
+  "version": "0.0.9-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
