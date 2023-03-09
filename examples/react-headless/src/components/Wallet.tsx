@@ -1,5 +1,5 @@
 import { FormEvent, memo, useCallback, useEffect, useState } from 'react';
-import { utils } from 'ethers';
+import { ethers } from 'ethers';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BaseWallet, Account } from '@polkadot-onboard/core';
 
@@ -50,7 +50,7 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
 
       if (api && wallet?.signer) {
         const decimals = api.registry.chainDecimals[0];
-        const amountBN = utils.parseUnits('0.01', decimals);
+        const amountBN = ethers.parseUnits('0.01', decimals);
 
         await api.tx.balances.transfer(receiverAddress, amountBN.toString()).signAndSend(senderAddress, { signer: wallet.signer }, () => {
           // do something with result

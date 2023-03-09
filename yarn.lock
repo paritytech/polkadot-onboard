@@ -1804,7 +1804,7 @@ __metadata:
     "@babel/preset-typescript": 7.18.6
     "@polkadot-onboard/core": 0.0.8-beta
     "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.8-beta
+    "@polkadot-onboard/react": 0.0.9-beta
     "@polkadot-onboard/wallet-connect": 0.0.8-beta
     "@polkadot/api": 9.14.1
     "@polkadot/extension-inject": 0.44.8
@@ -1823,7 +1823,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/react@0.0.8-beta, @polkadot-onboard/react@workspace:packages/react":
+"@polkadot-onboard/react@0.0.9-beta, @polkadot-onboard/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/react@workspace:packages/react"
   dependencies:
@@ -8469,7 +8469,7 @@ __metadata:
   dependencies:
     "@polkadot-onboard/core": 0.0.8-beta
     "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.8-beta
+    "@polkadot-onboard/react": 0.0.9-beta
     "@polkadot-onboard/wallet-connect": 0.0.8-beta
     "@polkadot/api": 9.14.1
     "@polkadot/extension-inject": 0.44.8
