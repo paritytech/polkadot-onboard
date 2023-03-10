@@ -1,7 +1,16 @@
 import { FormEvent, memo, useCallback, useEffect, useState } from 'react';
-import { ethers } from 'ethers';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { BaseWallet, Account } from '@polkadot-onboard/core';
+
+const unitToPlanck = (units: string, decimals: number) => {
+  let [whole, decimal] = units.split('.');
+
+  if (typeof decimal === 'undefined') {
+    decimal = '';
+  }
+
+  return `${whole}${decimal.padEnd(decimals, '0')}`;;
+}
 
 interface SendTransactionData {
   senderAddress: string;
@@ -49,10 +58,9 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
       const { senderAddress, receiverAddress } = Object.fromEntries(data) as unknown as SendTransactionData;
 
       if (api && wallet?.signer) {
-        const decimals = api.registry.chainDecimals[0];
-        const amountBN = ethers.parseUnits('0.01', decimals);
+        const amount = unitToPlanck('0.01', api.registry.chainDecimals[0]);
 
-        await api.tx.balances.transfer(receiverAddress, amountBN.toString()).signAndSend(senderAddress, { signer: wallet.signer }, () => {
+        await api.tx.balances.transfer(receiverAddress, amount).signAndSend(senderAddress, { signer: wallet.signer }, () => {
           // do something with result
         });
       }

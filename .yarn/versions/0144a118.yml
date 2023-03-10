@@ -1,3 +1,4 @@
 undecided:
-  - "@polkadot-onboard/react-demo"
+  - polkadot-onboard
   - react-next
+  - "@polkadot-onboard/react"

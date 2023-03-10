@@ -25,7 +25,6 @@
     "@polkadot-onboard/wallet-connect": "0.0.8-beta",
     "@polkadot/api": "9.14.1",
     "@polkadot/extension-inject": "0.44.8",
-    "ethers": "6.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
