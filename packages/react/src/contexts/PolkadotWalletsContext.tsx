@@ -8,17 +8,17 @@ interface PolkadotWalletsContextProviderProps {
 }
 
 interface PolkadotWalletsContextProps {
-  wallets: BaseWallet[];
+  wallets: BaseWallet[] | undefined;
 }
 
 const PolkadotWalletsContext = createContext<PolkadotWalletsContextProps>({
-  wallets: [],
+  wallets: undefined,
 });
 
 export const useWallets = () => useContext(PolkadotWalletsContext);
 
 export const PolkadotWalletsContextProvider = ({ children, walletAggregator }: PolkadotWalletsContextProviderProps) => {
-  const [wallets, setWallets] = useState<BaseWallet[]>([]);
+  const [wallets, setWallets] = useState<BaseWallet[] | undefined>();
 
   useEffect(() => {
     setWallets(walletAggregator.getWallets());

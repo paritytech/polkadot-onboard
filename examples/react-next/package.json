@@ -14,7 +14,7 @@
   "dependencies": {
     "@polkadot-onboard/core": "0.0.8-beta",
     "@polkadot-onboard/injected-wallets": "0.0.8-beta",
-    "@polkadot-onboard/react": "0.0.8-beta",
+    "@polkadot-onboard/react": "0.0.9-beta",
     "@polkadot-onboard/wallet-connect": "0.0.8-beta",
     "@polkadot/api": "9.14.1",
     "@polkadot/extension-inject": "0.44.8",

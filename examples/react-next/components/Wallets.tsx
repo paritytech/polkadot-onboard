@@ -6,6 +6,10 @@ import Wallet from './Wallet';
 const Wallets = () => {
   const { wallets } = useWallets();
 
+  if (!Array.isArray(wallets)) {
+    return null;
+  }
+
   return (
     <div>
       {wallets.map((wallet: BaseWallet) => (

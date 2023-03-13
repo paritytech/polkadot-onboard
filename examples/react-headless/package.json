@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/react-demo",
-  "version": "0.0.8-beta",
+  "version": "0.0.9-beta",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -21,11 +21,10 @@
   "dependencies": {
     "@polkadot-onboard/core": "0.0.8-beta",
     "@polkadot-onboard/injected-wallets": "0.0.8-beta",
-    "@polkadot-onboard/react": "0.0.8-beta",
+    "@polkadot-onboard/react": "0.0.9-beta",
     "@polkadot-onboard/wallet-connect": "0.0.8-beta",
     "@polkadot/api": "9.14.1",
     "@polkadot/extension-inject": "0.44.8",
-    "ethers": "6.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

@@ -5,13 +5,6 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@adraffy/ens-normalize@npm:1.8.9":
-  version: 1.8.9
-  resolution: "@adraffy/ens-normalize@npm:1.8.9"
-  checksum: 17791dce03a4320a88c377136c48d0c16ac3e5b07aad321d028c8342fcf821b95c0082cd269cddd488472d1273e8157ae101f2e4e7f9e6be42667ed7ab9614d9
-  languageName: node
-  linkType: hard
-
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -1674,13 +1667,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/hashes@npm:1.1.2":
-  version: 1.1.2
-  resolution: "@noble/hashes@npm:1.1.2"
-  checksum: 3c2a8cb7c2e053811032f242155d870c5eb98844d924d69702244d48804cb03b42d4a666c49c2b71164420d8229cb9a6f242b972d50d5bb2f1d673b98b041de2
-  languageName: node
-  linkType: hard
-
 "@noble/hashes@npm:1.1.5":
   version: 1.1.5
   resolution: "@noble/hashes@npm:1.1.5"
@@ -1804,14 +1790,13 @@ __metadata:
     "@babel/preset-typescript": 7.18.6
     "@polkadot-onboard/core": 0.0.8-beta
     "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.8-beta
+    "@polkadot-onboard/react": 0.0.9-beta
     "@polkadot-onboard/wallet-connect": 0.0.8-beta
     "@polkadot/api": 9.14.1
     "@polkadot/extension-inject": 0.44.8
     "@types/react": 18.0.28
     "@types/react-dom": 18.0.11
     babel-loader: 9.1.2
-    ethers: 6.0.4
     html-webpack-plugin: 5.5.0
     prettier: 2.8.4
     react: 18.2.0
@@ -1823,7 +1808,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/react@0.0.8-beta, @polkadot-onboard/react@workspace:packages/react":
+"@polkadot-onboard/react@0.0.9-beta, @polkadot-onboard/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/react@workspace:packages/react"
   dependencies:
@@ -3676,13 +3661,6 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: 7270ca82b242eafe5687a11fea6e088c960af712683756abf0791b68855ea9cace3057bd5e998ffcef50c944810c1e0ca1da526d02b32110e13c722aa959afdc
-  languageName: node
-  linkType: hard
-
-"aes-js@npm:4.0.0-beta.3":
-  version: 4.0.0-beta.3
-  resolution: "aes-js@npm:4.0.0-beta.3"
-  checksum: 2336feee1e4a7722f5b6ede192b0a22881fd6f9310b36ec10e62b6f015f9fddf812c1d8a61b9743ab710811fd0b0d7aad844178f11e7cb1439bbc14246c6c93e
   languageName: node
   linkType: hard
 
@@ -5555,20 +5533,6 @@ __metadata:
   version: 1.8.1
   resolution: "etag@npm:1.8.1"
   checksum: 571aeb3dbe0f2bbd4e4fadbdb44f325fc75335cd5f6f6b6a091e6a06a9f25ed5392f0863c5442acb0646787446e816f13cbfc6edce5b07658541dff573cab1ff
-  languageName: node
-  linkType: hard
-
-"ethers@npm:6.0.4":
-  version: 6.0.4
-  resolution: "ethers@npm:6.0.4"
-  dependencies:
-    "@adraffy/ens-normalize": 1.8.9
-    "@noble/hashes": 1.1.2
-    "@noble/secp256k1": 1.7.1
-    aes-js: 4.0.0-beta.3
-    tslib: 2.4.0
-    ws: 8.5.0
-  checksum: 1c91d69e6ea0e15b51ec00e0ff4fe65cb3ce75508f8c68fa2bde3367a1933a5ab0362dbad9c8281dc44077e576905ef4499ab430000b659a778a6ae847251a48
   languageName: node
   linkType: hard
 
@@ -8469,7 +8433,7 @@ __metadata:
   dependencies:
     "@polkadot-onboard/core": 0.0.8-beta
     "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.8-beta
+    "@polkadot-onboard/react": 0.0.9-beta
     "@polkadot-onboard/wallet-connect": 0.0.8-beta
     "@polkadot/api": 9.14.1
     "@polkadot/extension-inject": 0.44.8
@@ -9572,7 +9536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.4.0, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
@@ -10149,21 +10113,6 @@ __metadata:
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
   checksum: 159da4805f7e84a3d003d8841557196034155008f817172d4e986bd591f74aa82aa7db55929a54222309e01079a65a92a9e6414da5a6aa4b01ee44a511ac3ee5
-  languageName: node
-  linkType: hard
-
-"ws@npm:8.5.0":
-  version: 8.5.0
-  resolution: "ws@npm:8.5.0"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 76f2f90e40344bf18fd544194e7067812fb1372b2a37865678d8f12afe4b478ff2ebc0c7c0aff82cd5e6b66fc43d889eec0f1865c2365d8f7a66d92da7744a77
   languageName: node
   linkType: hard
 
