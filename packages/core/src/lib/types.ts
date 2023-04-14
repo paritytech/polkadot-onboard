@@ -20,6 +20,7 @@ export interface BaseWalletProvider {
 }
 
 export interface WalletMetadata {
+  id: string;
   title: string;
   description?: string;
   urls?: { main?: string; browsers?: Record<string, string> };

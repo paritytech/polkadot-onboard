@@ -29,7 +29,8 @@ class WalletConnectWallet implements BaseWallet {
     this.config = config;
     this.appName = appName;
     this.metadata = {
-      title: 'Wallet Connect' || '',
+      id: 'wallet-connect',
+      title: config.metadata?.name || 'Wallet Connect',
       description: config.metadata?.description || '',
       urls: { main: config.metadata?.url || '' },
       iconUrl: config.metadata?.icons[0] || '',
