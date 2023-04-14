@@ -1,6 +1,6 @@
 {
   "name": "react-next",
-  "version": "0.0.8-beta",
+  "version": "0.0.9",
   "license": "Apache-2.0",
   "private": true,
   "homepage": "https://paritytech.github.io/polkadot-onboard",
@@ -12,10 +12,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@polkadot-onboard/core": "0.0.8-beta",
-    "@polkadot-onboard/injected-wallets": "0.0.8-beta",
-    "@polkadot-onboard/react": "0.0.9-beta",
-    "@polkadot-onboard/wallet-connect": "0.0.8-beta",
+    "@polkadot-onboard/core": "0.0.9",
+    "@polkadot-onboard/injected-wallets": "0.0.9",
+    "@polkadot-onboard/react": "0.0.9",
+    "@polkadot-onboard/wallet-connect": "0.0.9",
     "@polkadot/api": "9.14.1",
     "@polkadot/extension-inject": "0.44.8",
     "next": "13.1.6",
@@ -30,6 +30,5 @@
     "eslint-config-next": "13.1.6",
     "gh-pages": "5.0.0",
     "typescript": "4.9.5"
-  },
-  "stableVersion": "0.0.2-beta"
+  }
 }

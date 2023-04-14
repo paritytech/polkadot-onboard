@@ -1756,7 +1756,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot-onboard/core@0.0.8-beta, @polkadot-onboard/core@workspace:packages/core":
+"@polkadot-onboard/core@0.0.9, @polkadot-onboard/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/core@workspace:packages/core"
   dependencies:
@@ -1766,11 +1766,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/injected-wallets@0.0.8-beta, @polkadot-onboard/injected-wallets@workspace:packages/injected-wallets":
+"@polkadot-onboard/injected-wallets@0.0.9, @polkadot-onboard/injected-wallets@workspace:packages/injected-wallets":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/injected-wallets@workspace:packages/injected-wallets"
   dependencies:
-    "@polkadot-onboard/core": 0.0.8-beta
+    "@polkadot-onboard/core": 0.0.9
     "@polkadot/extension-inject": 0.44.8
     "@polkadot/types": 9.14.1
     prettier: 2.8.4
@@ -1778,41 +1778,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/react-demo@workspace:examples/react-headless":
-  version: 0.0.0-use.local
-  resolution: "@polkadot-onboard/react-demo@workspace:examples/react-headless"
-  dependencies:
-    "@babel/core": 7.20.12
-    "@babel/plugin-transform-react-jsx": 7.20.13
-    "@babel/plugin-transform-runtime": 7.19.6
-    "@babel/preset-env": 7.20.2
-    "@babel/preset-react": 7.18.6
-    "@babel/preset-typescript": 7.18.6
-    "@polkadot-onboard/core": 0.0.8-beta
-    "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.9-beta
-    "@polkadot-onboard/wallet-connect": 0.0.8-beta
-    "@polkadot/api": 9.14.1
-    "@polkadot/extension-inject": 0.44.8
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
-    babel-loader: 9.1.2
-    html-webpack-plugin: 5.5.0
-    prettier: 2.8.4
-    react: 18.2.0
-    react-dom: 18.2.0
-    typescript: 4.9.5
-    webpack: 5.76.0
-    webpack-cli: 5.0.1
-    webpack-dev-server: 4.11.1
-  languageName: unknown
-  linkType: soft
-
-"@polkadot-onboard/react@0.0.9-beta, @polkadot-onboard/react@workspace:packages/react":
+"@polkadot-onboard/react@0.0.9, @polkadot-onboard/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/react@workspace:packages/react"
   dependencies:
-    "@polkadot-onboard/core": 0.0.8-beta
+    "@polkadot-onboard/core": 0.0.9
     "@types/react": 18.0.28
     prettier: 2.8.4
     react: 18.2.0
@@ -1821,11 +1791,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/wallet-connect@0.0.8-beta, @polkadot-onboard/wallet-connect@workspace:packages/wallet-connect":
+"@polkadot-onboard/wallet-connect@0.0.9, @polkadot-onboard/wallet-connect@workspace:packages/wallet-connect":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/wallet-connect@workspace:packages/wallet-connect"
   dependencies:
-    "@polkadot-onboard/core": 0.0.8-beta
+    "@polkadot-onboard/core": 0.0.9
     "@polkadot/types": 9.14.1
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.4.4
@@ -8420,6 +8390,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-headless@workspace:examples/react-headless":
+  version: 0.0.0-use.local
+  resolution: "react-headless@workspace:examples/react-headless"
+  dependencies:
+    "@babel/core": 7.20.12
+    "@babel/plugin-transform-react-jsx": 7.20.13
+    "@babel/plugin-transform-runtime": 7.19.6
+    "@babel/preset-env": 7.20.2
+    "@babel/preset-react": 7.18.6
+    "@babel/preset-typescript": 7.18.6
+    "@polkadot-onboard/core": 0.0.9
+    "@polkadot-onboard/injected-wallets": 0.0.9
+    "@polkadot-onboard/react": 0.0.9
+    "@polkadot-onboard/wallet-connect": 0.0.9
+    "@polkadot/api": 9.14.1
+    "@polkadot/extension-inject": 0.44.8
+    "@types/react": 18.0.28
+    "@types/react-dom": 18.0.11
+    babel-loader: 9.1.2
+    html-webpack-plugin: 5.5.0
+    prettier: 2.8.4
+    react: 18.2.0
+    react-dom: 18.2.0
+    typescript: 4.9.5
+    webpack: 5.76.0
+    webpack-cli: 5.0.1
+    webpack-dev-server: 4.11.1
+  languageName: unknown
+  linkType: soft
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -8431,10 +8431,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-next@workspace:examples/react-next"
   dependencies:
-    "@polkadot-onboard/core": 0.0.8-beta
-    "@polkadot-onboard/injected-wallets": 0.0.8-beta
-    "@polkadot-onboard/react": 0.0.9-beta
-    "@polkadot-onboard/wallet-connect": 0.0.8-beta
+    "@polkadot-onboard/core": 0.0.9
+    "@polkadot-onboard/injected-wallets": 0.0.9
+    "@polkadot-onboard/react": 0.0.9
+    "@polkadot-onboard/wallet-connect": 0.0.9
     "@polkadot/api": 9.14.1
     "@polkadot/extension-inject": 0.44.8
     "@types/node": 18.13.0
