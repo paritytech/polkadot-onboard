@@ -1970,7 +1970,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/core@workspace:packages/core"
   dependencies:
-    "@polkadot/types": 10.5.1
+    "@polkadot/types": 10.6.1
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -1982,7 +1982,7 @@ __metadata:
   dependencies:
     "@polkadot-onboard/core": 0.0.9
     "@polkadot/extension-inject": 0.46.2
-    "@polkadot/types": 10.5.1
+    "@polkadot/types": 10.6.1
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -2006,7 +2006,7 @@ __metadata:
   resolution: "@polkadot-onboard/wallet-connect@workspace:packages/wallet-connect"
   dependencies:
     "@polkadot-onboard/core": 0.0.9
-    "@polkadot/types": 10.5.1
+    "@polkadot/types": 10.6.1
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.7.2
     "@walletconnect/types": 2.7.2
@@ -2102,7 +2102,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/keyring@npm:^12.1.1":
+"@polkadot/keyring@npm:^12.1.1, @polkadot/keyring@npm:^12.1.2":
   version: 12.1.2
   resolution: "@polkadot/keyring@npm:12.1.2"
   dependencies:
@@ -2190,6 +2190,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@polkadot/types-augment@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@polkadot/types-augment@npm:10.6.1"
+  dependencies:
+    "@polkadot/types": 10.6.1
+    "@polkadot/types-codec": 10.6.1
+    "@polkadot/util": ^12.1.2
+    tslib: ^2.5.0
+  checksum: 32fef34e641b4ee117a8d8b90dfa0b956f682dfcfe576b4606b69264bba7ea7372efd477b3e6f9df38dc470c2efb3dbfd41717a09304b36d94c45f548268cd32
+  languageName: node
+  linkType: hard
+
 "@polkadot/types-codec@npm:10.5.1":
   version: 10.5.1
   resolution: "@polkadot/types-codec@npm:10.5.1"
@@ -2201,6 +2213,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@polkadot/types-codec@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@polkadot/types-codec@npm:10.6.1"
+  dependencies:
+    "@polkadot/util": ^12.1.2
+    "@polkadot/x-bigint": ^12.1.2
+    tslib: ^2.5.0
+  checksum: cb25ec3230632fab2947371e62e4137e62d30c08e97a9f12f22fbac09537fbaffb2b94e581097cb926210a913c1ddac11b520101660b5ac16c28c320cd442695
+  languageName: node
+  linkType: hard
+
 "@polkadot/types-create@npm:10.5.1":
   version: 10.5.1
   resolution: "@polkadot/types-create@npm:10.5.1"
@@ -2209,6 +2232,17 @@ __metadata:
     "@polkadot/util": ^12.1.1
     tslib: ^2.5.0
   checksum: 594fb22c32926b71d75a6eee49cc3db84bdedd173e8f75b208a2d676eae7076e88686fe71f598c7632e6cfe34aacca22e91dd48157d1a06d2eeccb198e41b30f
+  languageName: node
+  linkType: hard
+
+"@polkadot/types-create@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@polkadot/types-create@npm:10.6.1"
+  dependencies:
+    "@polkadot/types-codec": 10.6.1
+    "@polkadot/util": ^12.1.2
+    tslib: ^2.5.0
+  checksum: abb0a4ab7cc55e56d03e67f325d99ae071a58a88093fe83716a528db8dcdad5dee13c779eb53e7d1d3baab2a1548cebd25105be7ecac8c893c0b3889b107a5b4
   languageName: node
   linkType: hard
 
@@ -2252,7 +2286,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/util-crypto@npm:12.1.2, @polkadot/util-crypto@npm:^12.1.1":
+"@polkadot/types@npm:10.6.1":
+  version: 10.6.1
+  resolution: "@polkadot/types@npm:10.6.1"
+  dependencies:
+    "@polkadot/keyring": ^12.1.2
+    "@polkadot/types-augment": 10.6.1
+    "@polkadot/types-codec": 10.6.1
+    "@polkadot/types-create": 10.6.1
+    "@polkadot/util": ^12.1.2
+    "@polkadot/util-crypto": ^12.1.2
+    rxjs: ^7.8.1
+    tslib: ^2.5.0
+  checksum: ef27b558f6b0a85170cc5ba996363e27c2f644626902cb5bfc060b9f3d3557d23e6d597d6f46a447a5f42765d7e20a3a9bdc070aa46c390704722f4b8acfef68
+  languageName: node
+  linkType: hard
+
+"@polkadot/util-crypto@npm:12.1.2, @polkadot/util-crypto@npm:^12.1.1, @polkadot/util-crypto@npm:^12.1.2":
   version: 12.1.2
   resolution: "@polkadot/util-crypto@npm:12.1.2"
   dependencies:
@@ -2272,7 +2322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/util@npm:12.1.2, @polkadot/util@npm:^12.1.1":
+"@polkadot/util@npm:12.1.2, @polkadot/util@npm:^12.1.1, @polkadot/util@npm:^12.1.2":
   version: 12.1.2
   resolution: "@polkadot/util@npm:12.1.2"
   dependencies:
@@ -2367,7 +2417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot/x-bigint@npm:12.1.2, @polkadot/x-bigint@npm:^12.1.1":
+"@polkadot/x-bigint@npm:12.1.2, @polkadot/x-bigint@npm:^12.1.1, @polkadot/x-bigint@npm:^12.1.2":
   version: 12.1.2
   resolution: "@polkadot/x-bigint@npm:12.1.2"
   dependencies:
