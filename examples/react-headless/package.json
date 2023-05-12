@@ -42,7 +42,7 @@
     "prettier": "2.8.8",
     "typescript": "5.0.4",
     "webpack": "5.82.1",
-    "webpack-cli": "5.0.2",
+    "webpack-cli": "5.1.1",
     "webpack-dev-server": "4.13.3"
   }
 }
