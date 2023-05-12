@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@polkadot/types": "10.6.1",
-    "@walletconnect/types": "2.7.2",
+    "@walletconnect/types": "2.7.3",
     "prettier": "2.8.8",
     "typescript": "5.0.4"
   }
