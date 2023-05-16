@@ -1,6 +1,13 @@
 ## Getting Started
+switch to next example directory and install the dependencies:
+```bash
+cd <next example folder>
 
-First, run the development server:
+npm install
+# or
+yarn install
+```
+run the development server:
 
 ```bash
 npm run dev
