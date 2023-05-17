@@ -1,14 +1,14 @@
 import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
-import type { WalletConnectConfiguration, WcAccount } from './types';
+import type { PolkadotNamespaceChainId, WalletConnectConfiguration, WcAccount } from './types';
 
 import { WalletType } from '@polkadot-onboard/core';
 import SignClient from '@walletconnect/sign-client';
 import QRCodeModal from '@walletconnect/qrcode-modal';
 import { WalletConnectSigner } from './signer';
 
-export const CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
+export const POLKADOT_CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
 export const WC_VERSION = '2.0';
 
 const toWalletAccount = (wcAccount: WcAccount) => {
@@ -24,8 +24,9 @@ class WalletConnectWallet implements BaseWallet {
   client: SignClient | undefined;
   signer: Signer | undefined;
   session: SessionTypes.Struct | undefined;
+  chainId: PolkadotNamespaceChainId;
 
-  constructor(config: WalletConnectConfiguration, appName: string) {
+  constructor(config: WalletConnectConfiguration, appName: string, chainId?: PolkadotNamespaceChainId) {
     this.config = config;
     this.appName = appName;
     this.metadata = {
@@ -36,6 +37,7 @@ class WalletConnectWallet implements BaseWallet {
       iconUrl: config.metadata?.icons[0] || '',
       version: WC_VERSION,
     };
+    this.chainId = chainId || POLKADOT_CHAIN_ID;
   }
 
   reset(): void {
@@ -65,7 +67,7 @@ class WalletConnectWallet implements BaseWallet {
       requiredNamespaces: {
         polkadot: {
           methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
-          chains: [CHAIN_ID],
+          chains: [this.chainId],
           events: [],
         },
       },
@@ -85,7 +87,7 @@ class WalletConnectWallet implements BaseWallet {
           // setup the client
           this.client = client;
           this.session = session;
-          this.signer = new WalletConnectSigner(client, session, CHAIN_ID);
+          this.signer = new WalletConnectSigner(client, session, this.chainId);
           resolve();
         })
         .catch(reject)
