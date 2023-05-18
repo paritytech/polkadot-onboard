@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "clean": "yarn cache clean && rm -rf ./dist/ ./node_modules",
-    "build": "rm -rf ./dist/ && yarn && yarn format && tsc --build",
+    "build": "rm -rf ./dist/ && yarn format && tsc --build",
     "build:watch": "tsc --watch",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
@@ -29,7 +29,7 @@
     "@walletconnect/sign-client": "2.7.3"
   },
   "devDependencies": {
-    "@polkadot/types": "10.6.1",
+    "@polkadot/types": "10.7.1",
     "@walletconnect/types": "2.7.3",
     "prettier": "2.8.8",
     "typescript": "5.0.4"

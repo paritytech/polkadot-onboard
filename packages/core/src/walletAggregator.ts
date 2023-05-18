@@ -1,4 +1,4 @@
-import type { BaseWallet, BaseWalletProvider } from './types';
+import type { BaseWallet, BaseWalletProvider } from './types.js';
 
 export class WalletAggregator {
   walletProviders: BaseWalletProvider[];

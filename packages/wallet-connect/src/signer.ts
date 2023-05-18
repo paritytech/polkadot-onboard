@@ -2,7 +2,7 @@ import type { HexString } from '@polkadot/util/types';
 import type { Signer, SignerResult } from '@polkadot/types/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
-import type { PolkadotNamespaceChainId } from './types';
+import type { PolkadotNamespaceChainId } from './types.js';
 
 import { TypeRegistry } from '@polkadot/types';
 import SignClient from '@walletconnect/sign-client';

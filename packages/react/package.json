@@ -19,7 +19,7 @@
   "type": "module",
   "scripts": {
     "clean": "yarn cache clean && rm -rf ./dist/ ./node_modules",
-    "build": "rm -rf ./dist/ && yarn && yarn format && tsc --build",
+    "build": "rm -rf ./dist/ && yarn format && tsc --build",
     "build:watch": "tsc --watch",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
