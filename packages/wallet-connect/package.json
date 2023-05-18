@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/wallet-connect",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -24,7 +24,7 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-onboard/core": "0.0.9",
+    "@polkadot-onboard/core": "0.0.10",
     "@walletconnect/qrcode-modal": "1.8.0",
     "@walletconnect/sign-client": "2.7.3"
   },
