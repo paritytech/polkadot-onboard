@@ -2,6 +2,7 @@ import type { HexString } from '@polkadot/util/types';
 import type { Signer, SignerResult } from '@polkadot/types/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
+import type { PolkadotNamespaceChainId } from './types';
 
 import { TypeRegistry } from '@polkadot/types';
 import SignClient from '@walletconnect/sign-client';
@@ -14,10 +15,10 @@ export class WalletConnectSigner implements Signer {
   registry: TypeRegistry;
   client: SignClient;
   session: SessionTypes.Struct;
-  chainId: string;
+  chainId: PolkadotNamespaceChainId;
   id = 0;
 
-  constructor(client: SignClient, session: SessionTypes.Struct, chainId: string) {
+  constructor(client: SignClient, session: SessionTypes.Struct, chainId: PolkadotNamespaceChainId) {
     this.client = client;
     this.session = session;
     this.registry = new TypeRegistry();
@@ -46,7 +47,7 @@ export class WalletConnectSigner implements Signer {
   signRaw = async (raw: SignerPayloadRaw): Promise<SignerResult> => {
     let request = {
       topic: this.session.topic,
-      chainId: 'polkadot:91b171bb158e2d3848fa23a9f1c25182',
+      chainId: this.chainId,
       request: {
         id: 1,
         jsonrpc: '2.0',
