@@ -1,2 +1,2 @@
-export * from './lib/walletAggregator';
-export * from './lib/types';
+export * from './walletAggregator.js';
+export * from './types.js';

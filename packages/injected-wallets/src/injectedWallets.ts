@@ -1,7 +1,7 @@
 import type { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
 import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
-import type { ExtensionConfiguration, WalletExtension } from './types';
+import type { ExtensionConfiguration, WalletExtension } from './types.js';
 import { WalletType } from '@polkadot-onboard/core';
 
 const toWalletAccount = (account: InjectedAccount) => {
@@ -15,16 +15,19 @@ class InjectedWallet implements BaseWallet {
   injected: Injected | undefined;
   metadata: WalletMetadata;
   signer: Signer | undefined;
+
   constructor(extension: WalletExtension, appName: string) {
     this.extension = extension;
     this.metadata = { ...extension.metadata };
     this.appName = appName;
   }
+
   async getAccounts(): Promise<Account[]> {
     let injectedAccounts = await this.injected?.accounts.get();
     let walletAccounts = injectedAccounts?.map((account) => toWalletAccount(account));
     return walletAccounts || [];
   }
+
   async connect() {
     try {
       let injected: Injected | undefined;
@@ -38,10 +41,11 @@ class InjectedWallet implements BaseWallet {
 
       this.injected = injected;
       this.signer = injected.signer;
-    } catch ({ message }) {
+    } catch ({ message }: any) {
       console.error(`Error initializing ${this.metadata.title}: ${message}`);
     }
   }
+
   async disconnect() {}
   isConnected() {
     return false;

@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/wallet-connect",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -19,17 +19,17 @@
   "type": "module",
   "scripts": {
     "clean": "yarn cache clean && rm -rf ./dist/ ./node_modules",
-    "build": "rm -rf ./dist/ && yarn && yarn format && tsc --build",
+    "build": "rm -rf ./dist/ && yarn install && yarn format && tsc --build",
     "build:watch": "tsc --watch",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-onboard/core": "0.0.9",
+    "@polkadot-onboard/core": "0.0.10",
     "@walletconnect/qrcode-modal": "1.8.0",
     "@walletconnect/sign-client": "2.7.3"
   },
   "devDependencies": {
-    "@polkadot/types": "10.6.1",
+    "@polkadot/types": "10.7.1",
     "@walletconnect/types": "2.7.3",
     "prettier": "2.8.8",
     "typescript": "5.0.4"

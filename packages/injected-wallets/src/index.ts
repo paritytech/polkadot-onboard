@@ -1,2 +1,2 @@
-export * from './injectedWallets';
-export * from './types';
+export * from './injectedWallets.js';
+export * from './types.js';

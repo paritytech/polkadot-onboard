@@ -10,7 +10,7 @@ const unitToPlanck = (units: string, decimals: number) => {
   }
 
   return `${whole}${decimal.padEnd(decimals, '0')}`.replace(/^0+/, '');
-}
+};
 
 interface SendTransactionData {
   senderAddress: string;
