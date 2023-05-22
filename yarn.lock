@@ -2009,7 +2009,7 @@ __metadata:
     "@polkadot/types": 10.7.1
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.7.3
-    "@walletconnect/types": 2.7.3
+    "@walletconnect/types": 2.7.5
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -3232,6 +3232,20 @@ __metadata:
     "@walletconnect/logger": ^2.0.1
     events: ^3.3.0
   checksum: a3c99c4cce293d7f676849eb0d2d271dc259c539bdc7d15f50a3f2c3f48a2fb6ea70b6cb7b26c2f61a6207b4a7fa9a9ce03976b4ed1a59804c48ed8c4ad6d609
+  languageName: node
+  linkType: hard
+
+"@walletconnect/types@npm:2.7.5":
+  version: 2.7.5
+  resolution: "@walletconnect/types@npm:2.7.5"
+  dependencies:
+    "@walletconnect/events": ^1.0.1
+    "@walletconnect/heartbeat": 1.2.1
+    "@walletconnect/jsonrpc-types": ^1.0.2
+    "@walletconnect/keyvaluestorage": ^1.0.2
+    "@walletconnect/logger": ^2.0.1
+    events: ^3.3.0
+  checksum: 6c46d8a36a151e9cc73404ac4c6f625323baae7938df592d353bfa5699f537e2d2e05091c1f7e46610a8065fb1e3fa0a7ebe13bf8f214ee83009bf72a391928e
   languageName: node
   linkType: hard
 
