@@ -2009,7 +2009,7 @@ __metadata:
     "@polkadot/types": 10.7.1
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.7.3
-    "@walletconnect/types": 2.7.3
+    "@walletconnect/types": 2.7.6
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -3063,6 +3063,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@walletconnect/jsonrpc-types@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@walletconnect/jsonrpc-types@npm:1.0.3"
+  dependencies:
+    keyvaluestorage-interface: ^1.0.0
+    tslib: 1.14.1
+  checksum: 26e6f1d8f4207328d3df465c36d0d67844772863dc8e9e78e6cfec417cfc359300eab049d99ea558982b3f0948f4ca26b75253bdf635ffd82ffe30a5276b790c
+  languageName: node
+  linkType: hard
+
 "@walletconnect/jsonrpc-types@npm:^1.0.2":
   version: 1.0.2
   resolution: "@walletconnect/jsonrpc-types@npm:1.0.2"
@@ -3232,6 +3242,20 @@ __metadata:
     "@walletconnect/logger": ^2.0.1
     events: ^3.3.0
   checksum: a3c99c4cce293d7f676849eb0d2d271dc259c539bdc7d15f50a3f2c3f48a2fb6ea70b6cb7b26c2f61a6207b4a7fa9a9ce03976b4ed1a59804c48ed8c4ad6d609
+  languageName: node
+  linkType: hard
+
+"@walletconnect/types@npm:2.7.6":
+  version: 2.7.6
+  resolution: "@walletconnect/types@npm:2.7.6"
+  dependencies:
+    "@walletconnect/events": ^1.0.1
+    "@walletconnect/heartbeat": 1.2.1
+    "@walletconnect/jsonrpc-types": 1.0.3
+    "@walletconnect/keyvaluestorage": ^1.0.2
+    "@walletconnect/logger": ^2.0.1
+    events: ^3.3.0
+  checksum: 1f26c1c1bb9bd2b29fc8bd541c35267b292de2dbf99a860afe9264413d1f5f738b408c9039e75d4e556d03f45c25f6db5a2d43421ae52ee400d2ca2c70b6f1a8
   languageName: node
   linkType: hard
 
