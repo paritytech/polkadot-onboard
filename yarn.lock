@@ -1970,7 +1970,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/core@workspace:packages/core"
   dependencies:
-    "@polkadot/types": 10.7.1
+    "@polkadot/types": 10.7.2
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -1982,7 +1982,7 @@ __metadata:
   dependencies:
     "@polkadot-onboard/core": 0.0.10
     "@polkadot/extension-inject": 0.46.3
-    "@polkadot/types": 10.7.1
+    "@polkadot/types": 10.7.2
     prettier: 2.8.8
     typescript: 5.0.4
   languageName: unknown
@@ -2006,7 +2006,7 @@ __metadata:
   resolution: "@polkadot-onboard/wallet-connect@workspace:packages/wallet-connect"
   dependencies:
     "@polkadot-onboard/core": 0.0.10
-    "@polkadot/types": 10.7.1
+    "@polkadot/types": 10.7.2
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.7.6
     "@walletconnect/types": 2.7.7
