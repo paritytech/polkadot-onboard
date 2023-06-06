@@ -116,13 +116,15 @@ class WalletConnectWallet implements BaseWallet {
 export class WalletConnectProvider implements BaseWalletProvider {
   config: WalletConnectConfiguration;
   appName: string;
+  chainId?: PolkadotNamespaceChainId;
 
-  constructor(config: WalletConnectConfiguration, appName: string) {
+  constructor(config: WalletConnectConfiguration, appName: string, chainId?: PolkadotNamespaceChainId) {
     this.config = config;
     this.appName = appName;
+    this.chainId = chainId;
   }
 
   getWallets(): BaseWallet[] {
-    return [new WalletConnectWallet(this.config, this.appName)];
+    return [new WalletConnectWallet(this.config, this.appName, this.chainId)];
   }
 }
