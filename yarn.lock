@@ -1993,7 +1993,7 @@ __metadata:
   resolution: "@polkadot-onboard/react@workspace:packages/react"
   dependencies:
     "@polkadot-onboard/core": 0.0.10
-    "@types/react": 18.2.6
+    "@types/react": 18.2.11
     prettier: 2.8.8
     react: 18.2.0
     react-dom: 18.2.0
@@ -2946,14 +2946,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.6":
-  version: 18.2.6
-  resolution: "@types/react@npm:18.2.6"
+"@types/react@npm:18.2.11":
+  version: 18.2.11
+  resolution: "@types/react@npm:18.2.11"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
+  checksum: 3dcc326ea87468a06079b6c3a9e0f9a98a8438526aba81d29820954e2cb343b6beb8ca3d6a212878797a909fbd3199d07a4d819cd3efbbdba8c22039c06f1ed8
   languageName: node
   linkType: hard
 
@@ -8045,7 +8045,7 @@ __metadata:
     "@polkadot-onboard/wallet-connect": 0.0.10
     "@polkadot/api": 10.7.2
     "@polkadot/extension-inject": 0.46.3
-    "@types/react": 18.2.6
+    "@types/react": 18.2.11
     "@types/react-dom": 18.2.4
     babel-loader: 9.1.2
     html-webpack-plugin: 5.5.1
@@ -8077,7 +8077,7 @@ __metadata:
     "@polkadot/api": 10.7.2
     "@polkadot/extension-inject": 0.46.3
     "@types/node": 20.2.3
-    "@types/react": 18.2.6
+    "@types/react": 18.2.11
     "@types/react-dom": 18.2.4
     eslint: 8.41.0
     eslint-config-next: 13.4.2
