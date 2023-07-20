@@ -3270,10 +3270,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.2.3":
-  version: 20.2.3
-  resolution: "@types/node@npm:20.2.3"
-  checksum: 576065e8fc1fa45798c8f59a6bf809169582d04abc2e25fab1a048ffc734975b9992ae31be0d960cf705a21fb37112f7fcde11aa322beddf7491e73d5a5a988c
+"@types/node@npm:20.4.2":
+  version: 20.4.2
+  resolution: "@types/node@npm:20.4.2"
+  checksum: 99e544ea7560d51f01f95627fc40394c24a13da8f041121a0da13e4ef0a2aa332932eaf9a5e8d0e30d1c07106e96a183be392cbba62e8cf0bf6a085d5c0f4149
   languageName: node
   linkType: hard
 
@@ -8495,7 +8495,7 @@ __metadata:
     "@polkadot-onboard/wallet-connect": 0.0.10
     "@polkadot/api": 10.9.1
     "@polkadot/extension-inject": 0.46.3
-    "@types/node": 20.2.3
+    "@types/node": 20.4.2
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.4
     eslint: 8.41.0
