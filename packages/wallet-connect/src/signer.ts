@@ -2,10 +2,11 @@ import type { HexString } from '@polkadot/util/types';
 import type { Signer, SignerResult } from '@polkadot/types/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
-import type { PolkadotNamespaceChainId } from './types.js';
 
 import { TypeRegistry } from '@polkadot/types';
 import SignClient from '@walletconnect/sign-client';
+
+import { POLKADOT_CHAIN_ID } from './wallet-connect';
 
 interface Signature {
   signature: HexString;
@@ -15,21 +16,19 @@ export class WalletConnectSigner implements Signer {
   registry: TypeRegistry;
   client: SignClient;
   session: SessionTypes.Struct;
-  chainId: PolkadotNamespaceChainId;
   id = 0;
 
-  constructor(client: SignClient, session: SessionTypes.Struct, chainId: PolkadotNamespaceChainId) {
+  constructor(client: SignClient, session: SessionTypes.Struct) {
     this.client = client;
     this.session = session;
     this.registry = new TypeRegistry();
-    this.chainId = chainId;
   }
 
   // this method is set this way to be bound to this class.
   signPayload = async (payload: SignerPayloadJSON): Promise<SignerResult> => {
     let request = {
       topic: this.session.topic,
-      chainId: this.chainId,
+      chainId: `polkadot:${payload.genesisHash.replace("0x", '').substring(0, 32)}`,
       request: {
         id: 1,
         jsonrpc: '2.0',
@@ -47,7 +46,7 @@ export class WalletConnectSigner implements Signer {
   signRaw = async (raw: SignerPayloadRaw): Promise<SignerResult> => {
     let request = {
       topic: this.session.topic,
-      chainId: this.chainId,
+      chainId: POLKADOT_CHAIN_ID,
       request: {
         id: 1,
         jsonrpc: '2.0',
