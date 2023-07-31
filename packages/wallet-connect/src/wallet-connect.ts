@@ -1,7 +1,7 @@
 import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
 import type { SessionTypes } from '@walletconnect/types';
-import type { PolkadotNamespaceChainId, WalletConnectConfiguration, WcAccount } from './types.js';
+import type { WalletConnectConfiguration, WcAccount } from './types.js';
 
 import { WalletType } from '@polkadot-onboard/core';
 import SignClient from '@walletconnect/sign-client';
@@ -24,9 +24,9 @@ class WalletConnectWallet implements BaseWallet {
   client: SignClient | undefined;
   signer: Signer | undefined;
   session: SessionTypes.Struct | undefined;
-  chainId: PolkadotNamespaceChainId;
 
-  constructor(config: WalletConnectConfiguration, appName: string, chainId?: PolkadotNamespaceChainId) {
+  constructor(config: WalletConnectConfiguration, appName: string) {
+    if (!config.chainIds || config.chainIds.length === 0) config.chainIds = [POLKADOT_CHAIN_ID];
     this.config = config;
     this.appName = appName;
     this.metadata = {
@@ -37,7 +37,6 @@ class WalletConnectWallet implements BaseWallet {
       iconUrl: config.metadata?.icons[0] || '',
       version: WC_VERSION,
     };
-    this.chainId = chainId || POLKADOT_CHAIN_ID;
   }
 
   reset(): void {
@@ -67,7 +66,7 @@ class WalletConnectWallet implements BaseWallet {
       requiredNamespaces: {
         polkadot: {
           methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
-          chains: [this.chainId],
+          chains: this.config.chainIds,
           events: [],
         },
       },
@@ -87,7 +86,7 @@ class WalletConnectWallet implements BaseWallet {
           // setup the client
           this.client = client;
           this.session = session;
-          this.signer = new WalletConnectSigner(client, session, this.chainId);
+          this.signer = new WalletConnectSigner(client, session);
           resolve();
         })
         .catch(reject)
