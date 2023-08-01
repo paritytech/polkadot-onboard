@@ -3416,12 +3416,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.4":
-  version: 18.2.4
-  resolution: "@types/react-dom@npm:18.2.4"
+"@types/react-dom@npm:18.2.7":
+  version: 18.2.7
+  resolution: "@types/react-dom@npm:18.2.7"
   dependencies:
     "@types/react": "*"
-  checksum: 8301f35cf1cbfec8c723e9477aecf87774e3c168bd457d353b23c45064737213d3e8008b067c6767b7b08e4f2b3823ee239242a6c225fc91e7f8725ef8734124
+  checksum: e02ea908289a7ad26053308248d2b87f6aeafd73d0e2de2a3d435947bcea0422599016ffd1c3e38ff36c42f5e1c87c7417f05b0a157e48649e4a02f21727d54f
   languageName: node
   linkType: hard
 
@@ -8670,7 +8670,7 @@ __metadata:
     "@polkadot/api": 10.9.1
     "@polkadot/extension-inject": 0.46.3
     "@types/react": 18.2.14
-    "@types/react-dom": 18.2.4
+    "@types/react-dom": 18.2.7
     babel-loader: 9.1.2
     html-webpack-plugin: 5.5.3
     prettier: 3.0.0
@@ -8702,7 +8702,7 @@ __metadata:
     "@polkadot/extension-inject": 0.46.3
     "@types/node": 20.4.2
     "@types/react": 18.2.14
-    "@types/react-dom": 18.2.4
+    "@types/react-dom": 18.2.7
     eslint: 8.46.0
     eslint-config-next: 13.4.10
     gh-pages: 5.0.0
