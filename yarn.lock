@@ -2065,7 +2065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@polkadot-onboard/core@0.0.10, @polkadot-onboard/core@workspace:packages/core":
+"@polkadot-onboard/core@0.1.0, @polkadot-onboard/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/core@workspace:packages/core"
   dependencies:
@@ -2075,11 +2075,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/injected-wallets@0.0.10, @polkadot-onboard/injected-wallets@workspace:packages/injected-wallets":
+"@polkadot-onboard/injected-wallets@0.1.0, @polkadot-onboard/injected-wallets@workspace:packages/injected-wallets":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/injected-wallets@workspace:packages/injected-wallets"
   dependencies:
-    "@polkadot-onboard/core": 0.0.10
+    "@polkadot-onboard/core": 0.1.0
     "@polkadot/extension-inject": 0.46.5
     "@polkadot/types": 10.9.1
     prettier: 3.0.0
@@ -2087,11 +2087,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/react@0.0.10, @polkadot-onboard/react@workspace:packages/react":
+"@polkadot-onboard/react@0.1.0, @polkadot-onboard/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/react@workspace:packages/react"
   dependencies:
-    "@polkadot-onboard/core": 0.0.10
+    "@polkadot-onboard/core": 0.1.0
     "@types/react": 18.2.14
     prettier: 3.0.0
     react: 18.2.0
@@ -2100,11 +2100,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@polkadot-onboard/wallet-connect@0.0.10, @polkadot-onboard/wallet-connect@workspace:packages/wallet-connect":
+"@polkadot-onboard/wallet-connect@0.1.0, @polkadot-onboard/wallet-connect@workspace:packages/wallet-connect":
   version: 0.0.0-use.local
   resolution: "@polkadot-onboard/wallet-connect@workspace:packages/wallet-connect"
   dependencies:
-    "@polkadot-onboard/core": 0.0.10
+    "@polkadot-onboard/core": 0.1.0
     "@polkadot/types": 10.9.1
     "@walletconnect/qrcode-modal": 1.8.0
     "@walletconnect/sign-client": 2.9.1
@@ -8190,10 +8190,10 @@ __metadata:
     "@babel/preset-env": 7.22.9
     "@babel/preset-react": 7.18.6
     "@babel/preset-typescript": 7.22.5
-    "@polkadot-onboard/core": 0.0.10
-    "@polkadot-onboard/injected-wallets": 0.0.10
-    "@polkadot-onboard/react": 0.0.10
-    "@polkadot-onboard/wallet-connect": 0.0.10
+    "@polkadot-onboard/core": 0.1.0
+    "@polkadot-onboard/injected-wallets": 0.1.0
+    "@polkadot-onboard/react": 0.1.0
+    "@polkadot-onboard/wallet-connect": 0.1.0
     "@polkadot/api": 10.9.1
     "@polkadot/extension-inject": 0.46.5
     "@types/react": 18.2.14
@@ -8221,10 +8221,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-next@workspace:examples/react-next"
   dependencies:
-    "@polkadot-onboard/core": 0.0.10
-    "@polkadot-onboard/injected-wallets": 0.0.10
-    "@polkadot-onboard/react": 0.0.10
-    "@polkadot-onboard/wallet-connect": 0.0.10
+    "@polkadot-onboard/core": 0.1.0
+    "@polkadot-onboard/injected-wallets": 0.1.0
+    "@polkadot-onboard/react": 0.1.0
+    "@polkadot-onboard/wallet-connect": 0.1.0
     "@polkadot/api": 10.9.1
     "@polkadot/extension-inject": 0.46.5
     "@types/node": 20.4.5
