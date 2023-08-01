@@ -1,3 +1,4 @@
+import { WalletConnectConfiguration } from '@polkadot-onboard/wallet-connect';
 import { PolkadotWalletsContextProvider } from '@polkadot-onboard/react';
 import { WalletAggregator } from '@polkadot-onboard/core';
 import { InjectedWalletProvider } from '@polkadot-onboard/injected-wallets';
@@ -11,7 +12,7 @@ const APP_NAME = 'Polkadot Demo';
 
 const App = () => {
   let injectedWalletProvider = new InjectedWalletProvider(extensionConfig, APP_NAME);
-  let walletConnectParams = {
+  let walletConnectParams: WalletConnectConfiguration = {
     projectId: '4fae85e642724ee66587fa9f37b997e2',
     relayUrl: 'wss://relay.walletconnect.com',
     metadata: {
@@ -20,6 +21,7 @@ const App = () => {
       url: '#',
       icons: ['https://walletconnect.com/walletconnect-logo.png'],
     },
+    chainIds: ['polkadot:e143f23803ac50e8f6f8e62695d1ce9e', 'polkadot:91b171bb158e2d3848fa23a9f1c25182'],
   };
   let walletConnectProvider = new WalletConnectProvider(walletConnectParams, APP_NAME);
   let walletAggregator = new WalletAggregator([injectedWalletProvider, walletConnectProvider]);

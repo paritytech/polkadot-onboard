@@ -28,7 +28,7 @@ export class WalletConnectSigner implements Signer {
   signPayload = async (payload: SignerPayloadJSON): Promise<SignerResult> => {
     let request = {
       topic: this.session.topic,
-      chainId: `polkadot:${payload.genesisHash.replace("0x", '').substring(0, 32)}`,
+      chainId: `polkadot:${payload.genesisHash.replace('0x', '').substring(0, 32)}`,
       request: {
         id: 1,
         jsonrpc: '2.0',
