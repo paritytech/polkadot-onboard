@@ -26,7 +26,7 @@
   "dependencies": {
     "@polkadot-onboard/core": "0.0.10",
     "@walletconnect/qrcode-modal": "1.8.0",
-    "@walletconnect/sign-client": "2.9.0"
+    "@walletconnect/sign-client": "2.9.1"
   },
   "devDependencies": {
     "@polkadot/types": "10.9.1",
