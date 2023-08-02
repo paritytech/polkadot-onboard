@@ -18,7 +18,7 @@
     "@polkadot-onboard/wallet-connect": "0.1.0",
     "@polkadot/api": "10.9.1",
     "@polkadot/extension-inject": "0.46.5",
-    "next": "13.4.10",
+    "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
