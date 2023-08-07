@@ -1,12 +1,11 @@
-import type { HexString } from '@polkadot/util/types';
+import { TypeRegistry } from '@polkadot/types';
 import type { Signer, SignerResult } from '@polkadot/types/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
+import type { HexString } from '@polkadot/util/types';
+import SignClient from '@walletconnect/sign-client';
 import type { SessionTypes } from '@walletconnect/types';
 
-import { TypeRegistry } from '@polkadot/types';
-import SignClient from '@walletconnect/sign-client';
-
-import { POLKADOT_CHAIN_ID } from './wallet-connect';
+import { POLKADOT_CHAIN_ID } from './wallet-connect.js';
 
 interface Signature {
   signature: HexString;
@@ -24,9 +23,8 @@ export class WalletConnectSigner implements Signer {
     this.registry = new TypeRegistry();
   }
 
-  // this method is set this way to be bound to this class.
   signPayload = async (payload: SignerPayloadJSON): Promise<SignerResult> => {
-    let request = {
+    const request = {
       topic: this.session.topic,
       chainId: `polkadot:${payload.genesisHash.replace('0x', '').substring(0, 32)}`,
       request: {
@@ -36,15 +34,14 @@ export class WalletConnectSigner implements Signer {
         params: { address: payload.address, transactionPayload: payload },
       },
     };
-    let { signature } = await this.client.request<Signature>(request);
+
+    const { signature } = await this.client.request<Signature>(request);
+
     return { id: ++this.id, signature };
   };
 
-  // this method is set this way to be bound to this class.
-  // It might be used outside of the object context to sign messages.
-  // ref: https://polkadot.js.org/docs/extension/cookbook#sign-a-message
   signRaw = async (raw: SignerPayloadRaw): Promise<SignerResult> => {
-    let request = {
+    const request = {
       topic: this.session.topic,
       chainId: POLKADOT_CHAIN_ID,
       request: {
@@ -54,7 +51,9 @@ export class WalletConnectSigner implements Signer {
         params: { address: raw.address, message: raw.data },
       },
     };
-    let { signature } = await this.client.request<Signature>(request);
+
+    const { signature } = await this.client.request<Signature>(request);
+
     return { id: ++this.id, signature };
   };
 }
