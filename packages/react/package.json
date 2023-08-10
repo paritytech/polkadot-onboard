@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@polkadot-onboard/core": "0.1.0",
-    "@types/react": "18.2.14",
+    "@types/react": "18.2.20",
     "prettier": "3.0.0",
     "typescript": "5.1.6"
   }
