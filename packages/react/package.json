@@ -21,6 +21,7 @@
     "clean": "yarn cache clean && rm -rf ./dist/ ./node_modules",
     "build": "rm -rf ./dist/ && yarn install && yarn format && tsc --build",
     "build:watch": "tsc --watch",
+    "prepack": "yarn clean && yarn build",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
