@@ -1,29 +1,31 @@
 import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
-import type { Signer } from '@polkadot/types/types';
-import type { SessionTypes } from '@walletconnect/types';
-import type { WalletConnectConfiguration, WcAccount } from './types.js';
-
 import { WalletType } from '@polkadot-onboard/core';
-import SignClient from '@walletconnect/sign-client';
-import QRCodeModal from '@walletconnect/qrcode-modal';
+import type { Signer } from '@polkadot/types/types';
+import { WalletConnectModal } from '@walletconnect/modal';
+import Client, { SignClient } from '@walletconnect/sign-client';
+import type { SessionTypes } from '@walletconnect/types';
+
 import { WalletConnectSigner } from './signer.js';
+import type { WalletConnectConfiguration, WcAccount } from './types.js';
 
 export const POLKADOT_CHAIN_ID = 'polkadot:91b171bb158e2d3848fa23a9f1c25182';
 export const WC_VERSION = '2.0';
 
-const toWalletAccount = (wcAccount: WcAccount) => {
-  let address = wcAccount.split(':')[2];
-  return { address };
-};
+const toWalletAccount = (wcAccount: WcAccount) => ({ address: wcAccount.split(':')[2] });
+
+interface ModalState {
+  open: boolean;
+}
 
 class WalletConnectWallet implements BaseWallet {
   type = WalletType.WALLET_CONNECT;
   appName: string;
   metadata: WalletMetadata;
   config: WalletConnectConfiguration;
-  client: SignClient | undefined;
+  client: Client | undefined;
   signer: Signer | undefined;
   session: SessionTypes.Struct | undefined;
+  walletConnectModal: WalletConnectModal;
 
   constructor(config: WalletConnectConfiguration, appName: string) {
     if (!config.chainIds || config.chainIds.length === 0) config.chainIds = [POLKADOT_CHAIN_ID];
@@ -37,6 +39,10 @@ class WalletConnectWallet implements BaseWallet {
       iconUrl: config.metadata?.icons[0] || '',
       version: WC_VERSION,
     };
+    this.walletConnectModal = new WalletConnectModal({
+      projectId: config.projectId,
+      chains: config.chainIds,
+    });
   }
 
   reset(): void {
@@ -47,50 +53,84 @@ class WalletConnectWallet implements BaseWallet {
 
   async getAccounts(): Promise<Account[]> {
     let accounts: Account[] = [];
+
     if (this.session) {
-      let wcAccounts = Object.values(this.session.namespaces)
+      const wcAccounts = Object.values(this.session.namespaces)
         .map((namespace) => namespace.accounts)
         .flat();
+
       accounts = wcAccounts.map((wcAccount) => toWalletAccount(wcAccount as WcAccount));
     }
+
     return accounts;
   }
 
   async connect() {
-    // reset the client
     this.reset();
 
-    // init the client
-    let client = await SignClient.init(this.config);
-    let params = {
+    this.client = await SignClient.init(this.config);
+
+    this.client.on('session_delete', () => {
+      this.reset();
+
+      if (this.config.onSessionDelete) {
+        this.config.onSessionDelete();
+      }
+    });
+
+    const namespaces = {
       requiredNamespaces: {
         polkadot: {
-          methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
           chains: this.config.chainIds,
+          methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
+          events: [],
+        },
+      },
+      optionalNamespaces: {
+        polkadot: {
+          chains: this.config.optionalChainIds,
+          methods: ['polkadot_signTransaction', 'polkadot_signMessage'],
           events: [],
         },
       },
     };
 
-    const { uri, approval } = await client.connect(params);
+    const lastKeyIndex = this.client.session.getAll().length - 1;
+    const lastSession = this.client.session.getAll()[lastKeyIndex];
+
+    if (lastSession) {
+      return new Promise<void>((resolve) => {
+        this.session = lastSession;
+        this.signer = new WalletConnectSigner(this.client!, lastSession);
+        resolve();
+      });
+    }
+
+    const { uri, approval } = await this.client.connect(namespaces);
+
     return new Promise<void>((resolve, reject) => {
-      // Open QRCode modal if a URI was returned (i.e. we're not connecting an existing pairing).
       if (uri) {
-        QRCodeModal.open(uri, () => {
-          reject(new Error('Canceled pairing. QR Code Modal closed.'));
-        });
+        this.walletConnectModal.openModal({ uri });
       }
-      // Await session approval from the wallet.
+
+      const unsubscribeModal = this.walletConnectModal.subscribeModal((state: ModalState) => {
+        if (state.open === false) {
+          unsubscribeModal();
+          resolve();
+        }
+      });
+
       approval()
         .then((session) => {
-          // setup the client
-          this.client = client;
           this.session = session;
-          this.signer = new WalletConnectSigner(client, session);
+          this.signer = new WalletConnectSigner(this.client!, session);
+
           resolve();
         })
-        .catch(reject)
-        .finally(() => QRCodeModal.close());
+        .catch((error) => {
+          reject(error);
+        })
+        .finally(() => this.walletConnectModal.closeModal());
     });
   }
 
@@ -104,6 +144,7 @@ class WalletConnectWallet implements BaseWallet {
         },
       });
     }
+
     this.reset();
   }
 
