@@ -1,6 +1,6 @@
 {
   "name": "react-headless",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -19,10 +19,10 @@
     "start": "webpack serve --open --config ./webpack.js"
   },
   "dependencies": {
-    "@polkadot-onboard/core": "0.1.0",
-    "@polkadot-onboard/injected-wallets": "0.1.0",
-    "@polkadot-onboard/react": "0.1.0",
-    "@polkadot-onboard/wallet-connect": "0.1.0",
+    "@polkadot-onboard/core": "0.2.0",
+    "@polkadot-onboard/injected-wallets": "0.2.0",
+    "@polkadot-onboard/react": "0.2.0",
+    "@polkadot-onboard/wallet-connect": "0.2.0",
     "@polkadot/api": "10.9.1",
     "@polkadot/extension-inject": "0.46.5",
     "react": "18.2.0",
