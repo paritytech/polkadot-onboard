@@ -1847,6 +1847,8 @@ __metadata:
   resolution: "@polkadot-onboard/injected-wallets@workspace:packages/injected-wallets"
   dependencies:
     "@polkadot-onboard/core": 0.2.0
+    "@polkadot/api": 10.9.1
+    "@polkadot/extension-dapp": 0.46.5
     "@polkadot/extension-inject": 0.46.5
     "@polkadot/types": 10.9.1
     prettier: 3.0.1
@@ -1949,6 +1951,22 @@ __metadata:
     rxjs: ^7.8.1
     tslib: ^2.5.3
   checksum: 6b37d9bacf0599bb7c385ddefca929547299a6f1d242ce3215f8480672297c81ec30c251bc9aac3889c5956bd9ef3918d69364819861eec308f4aa347c08110d
+  languageName: node
+  linkType: hard
+
+"@polkadot/extension-dapp@npm:0.46.5":
+  version: 0.46.5
+  resolution: "@polkadot/extension-dapp@npm:0.46.5"
+  dependencies:
+    "@polkadot/extension-inject": 0.46.5
+    "@polkadot/util": ^12.3.2
+    "@polkadot/util-crypto": ^12.3.2
+    tslib: ^2.5.3
+  peerDependencies:
+    "@polkadot/api": "*"
+    "@polkadot/util": "*"
+    "@polkadot/util-crypto": "*"
+  checksum: 6b60a0c47ef64bc3d76e2a83c4678a0a4317b3b150fc7bcb944d451f6292dd5e95c3a379e7df9dbbbe06290e0dd7a90aaadd37321846a235d17c84c62d845a5c
   languageName: node
   linkType: hard
 

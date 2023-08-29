@@ -25,7 +25,7 @@ const App = () => {
     optionalChainIds: ['polkadot:67f9723393ef76214df0118c34bbbd3d', 'polkadot:7c34d42fc815d392057c78b49f2755c7'],
     onSessionDelete: () => {
       // do something when session is removed
-    }
+    },
   };
 
   const walletConnectProvider = new WalletConnectProvider(walletConnectParams, APP_NAME);

@@ -3,6 +3,7 @@ import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@p
 import type { Signer } from '@polkadot/types/types';
 import type { ExtensionConfiguration, WalletExtension } from './types.js';
 import { WalletType } from '@polkadot-onboard/core';
+import { isWeb3Injected } from '@polkadot/extension-dapp';
 
 const toWalletAccount = (account: InjectedAccount) => {
   return account as Account;
@@ -56,15 +57,33 @@ export class InjectedWalletProvider implements BaseWalletProvider {
   config: ExtensionConfiguration;
   supportedOnly: boolean;
   appName: string;
+
   constructor(config: ExtensionConfiguration, appName: string, supportedOnly: boolean = false) {
     this.config = config;
     this.supportedOnly = supportedOnly;
     this.appName = appName;
   }
-  getExtensions(): { known: WalletExtension[]; other: WalletExtension[] } {
+
+  async getExtensions(): Promise<{ known: WalletExtension[]; other: WalletExtension[] }> {
     const injectedWindow = window as Window & InjectedWindow;
     const knownExtensions: WalletExtension[] = [];
     const otherExtensions: WalletExtension[] = [];
+
+    if (!isWeb3Injected) {
+      await Promise.any(
+        [300, 600, 1000].map(
+          (ms) =>
+            new Promise((resolve) =>
+              setTimeout(() => {
+                if (isWeb3Injected) {
+                  resolve('injection complete');
+                }
+              }, ms),
+            ),
+        ),
+      );
+    }
+
     if (injectedWindow.injectedWeb3) {
       Object.keys(injectedWindow.injectedWeb3).forEach((extensionId) => {
         if (!this.config.disallowed?.includes(extensionId)) {
@@ -83,14 +102,17 @@ export class InjectedWalletProvider implements BaseWalletProvider {
     return { known: knownExtensions, other: otherExtensions };
   }
 
-  getWallets(): BaseWallet[] {
+  async getWallets(): Promise<BaseWallet[]> {
     let injectedWallets: InjectedWallet[] = [];
-    let { known, other } = this.getExtensions();
+    const { known, other } = await this.getExtensions();
     let extensions = [...known];
+
     if (!this.supportedOnly) {
       extensions = [...extensions, ...other];
     }
+
     injectedWallets = extensions.map((ext) => new InjectedWallet(ext, this.appName));
+
     return injectedWallets;
   }
 }
