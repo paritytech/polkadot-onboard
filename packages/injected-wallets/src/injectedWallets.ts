@@ -3,11 +3,14 @@ import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@p
 import type { Signer } from '@polkadot/types/types';
 import type { ExtensionConfiguration, WalletExtension } from './types.js';
 import { WalletType } from '@polkadot-onboard/core';
-import { isWeb3Injected } from '@polkadot/extension-dapp';
 
 const toWalletAccount = (account: InjectedAccount) => {
   return account as Account;
 };
+
+function isWeb3Injected(injectedWindow: InjectedWindow): boolean {
+  return Object.values(injectedWindow.injectedWeb3 || {}).filter(({ connect, enable }) => !!(connect || enable)).length !== 0;
+}
 
 class InjectedWallet implements BaseWallet {
   type = WalletType.INJECTED;
@@ -69,13 +72,13 @@ export class InjectedWalletProvider implements BaseWalletProvider {
     const knownExtensions: WalletExtension[] = [];
     const otherExtensions: WalletExtension[] = [];
 
-    if (!isWeb3Injected) {
+    if (!isWeb3Injected(injectedWindow)) {
       await Promise.any(
         [300, 600, 1000].map(
           (ms) =>
             new Promise((resolve) =>
               setTimeout(() => {
-                if (isWeb3Injected) {
+                if (isWeb3Injected(injectedWindow)) {
                   resolve('injection complete');
                 }
               }, ms),
