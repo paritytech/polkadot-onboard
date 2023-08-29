@@ -76,15 +76,17 @@ export class InjectedWalletProvider implements BaseWalletProvider {
       await Promise.any(
         [300, 600, 1000].map(
           (ms) =>
-            new Promise((resolve) =>
+            new Promise((resolve, reject) =>
               setTimeout(() => {
                 if (isWeb3Injected(injectedWindow)) {
                   resolve('injection complete');
+                } else {
+                  reject();
                 }
               }, ms),
             ),
         ),
-      );
+      ).catch(() => {});
     }
 
     if (injectedWindow.injectedWeb3) {
