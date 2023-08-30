@@ -16,7 +16,7 @@ export enum WalletType {
 }
 
 export interface BaseWalletProvider {
-  getWallets: () => BaseWallet[];
+  getWallets: () => Promise<BaseWallet[]>;
 }
 
 export interface WalletMetadata {

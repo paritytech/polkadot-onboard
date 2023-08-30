@@ -26,9 +26,11 @@ export const PolkadotWalletsContextProvider = ({
   const [wallets, setWallets] = useState<BaseWallet[] | undefined>();
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setWallets(walletAggregator.getWallets());
+    const timeoutId = setTimeout(async () => {
+      const wallets = await walletAggregator.getWallets();
+      setWallets(wallets);
     }, initialWaitMs);
+
     return () => clearTimeout(timeoutId);
   }, [walletAggregator]);
 

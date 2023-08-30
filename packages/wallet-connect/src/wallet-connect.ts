@@ -162,7 +162,7 @@ export class WalletConnectProvider implements BaseWalletProvider {
     this.appName = appName;
   }
 
-  getWallets(): BaseWallet[] {
-    return [new WalletConnectWallet(this.config, this.appName)];
+  getWallets(): Promise<BaseWallet[]> {
+    return new Promise((resolve) => resolve([new WalletConnectWallet(this.config, this.appName)]));
   }
 }
