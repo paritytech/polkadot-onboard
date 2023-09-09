@@ -28,6 +28,8 @@ export interface WalletMetadata {
   version?: string;
 }
 
+export type UnsubscribeFn = () => void;
+
 export interface BaseWallet {
   metadata: WalletMetadata;
   type: WalletType;
@@ -37,4 +39,5 @@ export interface BaseWallet {
   disconnect: () => Promise<void>;
   isConnected: () => boolean;
   getAccounts: () => Promise<Account[]>;
+  subscribeAccounts: (cb: (accounts: Account[]) => void) => Promise<UnsubscribeFn>;
 }

@@ -1,5 +1,5 @@
 import type { Injected, InjectedWindow, InjectedAccount } from '@polkadot/extension-inject/types';
-import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
+import type { Account, BaseWallet, BaseWalletProvider, UnsubscribeFn, WalletMetadata } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
 import type { ExtensionConfiguration, WalletExtension } from './types.js';
 import { WalletType } from '@polkadot-onboard/core';
@@ -30,6 +30,16 @@ class InjectedWallet implements BaseWallet {
     let injectedAccounts = await this.injected?.accounts.get();
     let walletAccounts = injectedAccounts?.map((account) => toWalletAccount(account));
     return walletAccounts || [];
+  }
+
+  async subscribeAccounts(cb: (accounts: Account[]) => void): Promise<UnsubscribeFn> {
+    const subscription = await this.injected?.accounts.subscribe((accounts) => {
+      cb(accounts.map(toWalletAccount));
+    });
+
+    return () => {
+      subscription?.();
+    };
   }
 
   async connect() {
