@@ -18,6 +18,7 @@ interface SendTransactionData {
 }
 
 const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
+  const [connected, setConnected] = useState(false);
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [api, setApi] = useState<ApiPromise | null>(null);
   const [isBusy, setIsBusy] = useState<boolean>(false);
@@ -33,20 +34,32 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
     setupApi();
   }, []);
 
-  const getAccounts = async () => {
+  const connect = useCallback(async () => {
     if (!isBusy) {
+      setIsBusy(true);
       try {
-        setIsBusy(true);
         await wallet.connect();
-        let accounts = await wallet.getAccounts();
-        setAccounts(accounts);
-      } catch (error) {
-        // handle error
-      } finally {
-        setIsBusy(false);
+        setConnected(true);
+      } catch (err) {
+        console.error('Failed to connect', err);
       }
+      setIsBusy(false);
     }
-  };
+  }, [wallet]);
+
+  useEffect(() => {
+    if (!connected) {
+      setAccounts([]);
+      return () => {};
+    }
+
+    const promUnsubscribe = wallet.subscribeAccounts(setAccounts);
+
+    // unsubscribe to prevent memory leak
+    return () => {
+      promUnsubscribe.then((unsub) => unsub());
+    };
+  }, [connected, wallet]);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -70,7 +83,7 @@ const Wallet = ({ wallet }: { wallet: BaseWallet }) => {
 
   return (
     <div style={{ marginBottom: '20px' }}>
-      <button onClick={getAccounts}>{`${wallet.metadata.title} ${wallet.metadata.version || ''}`}</button>
+      <button onClick={connect}>{`${wallet.metadata.title} ${wallet.metadata.version || ''}`}</button>
       {accounts.length > 0 &&
         accounts.map(({ address, name = '' }) => (
           <form key={address} onSubmit={handleSubmit} style={{ marginBottom: '10px' }}>

@@ -1,4 +1,4 @@
-import type { Account, BaseWallet, BaseWalletProvider, WalletMetadata } from '@polkadot-onboard/core';
+import type { Account, BaseWallet, BaseWalletProvider, UnsubscribeFn, WalletMetadata } from '@polkadot-onboard/core';
 import { WalletType } from '@polkadot-onboard/core';
 import type { Signer } from '@polkadot/types/types';
 import { WalletConnectModal } from '@walletconnect/modal';
@@ -63,6 +63,24 @@ class WalletConnectWallet implements BaseWallet {
     }
 
     return accounts;
+  }
+
+  async subscribeAccounts(cb: (accounts: Account[]) => void): Promise<UnsubscribeFn> {
+    const handler = async () => {
+      cb(await this.getAccounts());
+    };
+
+    await handler();
+
+    this.client?.on('session_delete', handler);
+    this.client?.on('session_expire', handler);
+    this.client?.on('session_update', handler);
+
+    return () => {
+      this.client?.off('session_update', handler);
+      this.client?.off('session_expire', handler);
+      this.client?.off('session_update', handler);
+    };
   }
 
   async connect() {
