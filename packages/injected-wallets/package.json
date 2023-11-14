@@ -1,6 +1,6 @@
 {
   "name": "@polkadot-onboard/injected-wallets",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Parity Team <admin@parity.io>",
   "maintainers": [
     "hamidra <hamid.alipour@gmail.com>",
@@ -25,7 +25,7 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@polkadot-onboard/core": "1.0.0",
+    "@polkadot-onboard/core": "1.1.0",
     "@polkadot/extension-inject": "0.46.5"
   },
   "devDependencies": {
