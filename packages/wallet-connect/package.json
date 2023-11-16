@@ -27,7 +27,7 @@
   "dependencies": {
     "@polkadot-onboard/core": "1.1.0",
     "@walletconnect/modal": "2.6.2",
-    "@walletconnect/sign-client": "2.10.4"
+    "@walletconnect/sign-client": "2.10.5"
   },
   "devDependencies": {
     "@polkadot/types": "10.9.1",
