@@ -2945,12 +2945,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.9.0":
-  version: 20.9.0
-  resolution: "@types/node@npm:20.9.0"
+"@types/node@npm:20.10.5":
+  version: 20.10.5
+  resolution: "@types/node@npm:20.10.5"
   dependencies:
     undici-types: ~5.26.4
-  checksum: bfd927da6bff8a32051fa44bb47ca32a56d2c8bc8ba0170770f181cc1fa3c0b05863c9b930f0ba8604a48d5eb0d319166601709ca53bf2deae0025d8b6c6b8a3
+  checksum: e216b679f545a8356960ce985a0e53c3a58fff0eacd855e180b9e223b8db2b5bd07b744a002b8c1f0c37f9194648ab4578533b5c12df2ec10cc02f61d20948d2
   languageName: node
   linkType: hard
 
@@ -8539,7 +8539,7 @@ __metadata:
     "@polkadot-onboard/wallet-connect": 1.1.0
     "@polkadot/api": 10.9.1
     "@polkadot/extension-inject": 0.46.5
-    "@types/node": 20.9.0
+    "@types/node": 20.10.5
     "@types/react": 18.2.37
     "@types/react-dom": 18.2.15
     eslint: 8.53.0
