@@ -30,5 +30,7 @@ export interface WalletConnectConfiguration extends SignClientTypes.Options {
     explorerExcludedWalletIds?: string[] | 'ALL';
     termsOfServiceUrl?: string;
     privacyPolicyUrl?: string;
+    themeMode?: 'dark' | 'light';
+    themeVariables?: Record<string, string>;
   };
 }
