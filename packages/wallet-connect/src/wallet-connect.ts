@@ -42,6 +42,7 @@ class WalletConnectWallet implements BaseWallet {
     this.walletConnectModal = new WalletConnectModal({
       projectId: config.projectId,
       chains: config.chainIds,
+      ...config.options,
     });
   }
 
