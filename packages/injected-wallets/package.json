@@ -29,7 +29,7 @@
     "@polkadot/extension-inject": "0.46.5"
   },
   "devDependencies": {
-    "@polkadot/types": "10.9.1",
+    "@polkadot/types": "10.11.2",
     "prettier": "3.1.0",
     "typescript": "5.2.2"
   }
