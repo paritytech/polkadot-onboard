@@ -1,3 +1,5 @@
+**This repository has been discontinued and it is no longer maintained by any team**
+
 # @polkadot-onboard
 
 _@polkadot-onboard_ provides a set of packages for developers to easily onboard and add different type of polkadot wallets to their dapps. It provides a universal interface for working with different type of wallets (e.g. Injected-wallets, Wallet-Connect, hardware-wallets).
