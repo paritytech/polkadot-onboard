@@ -1,4 +1,4 @@
-**This repository has been discontinued and it is no longer maintained by any team**
+⚠️ ⚠️**This repository has been discontinued and it is no longer maintained by any team** ⚠️ ⚠️
 
 # @polkadot-onboard
 
